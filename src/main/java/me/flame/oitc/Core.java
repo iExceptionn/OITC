@@ -1,13 +1,11 @@
 package me.flame.oitc;
 
 import com.zaxxer.hikari.HikariDataSource;
-import me.flame.oitc.admin.adminpanel.AdminPanel;
 import me.flame.oitc.admin.adminpanel.listeners.AdminPanelInventoryListener;
 import me.flame.oitc.admin.adminpanel.managers.AdminPanelManager;
 import me.flame.oitc.admin.commands.AdminCoinsCommand;
 import me.flame.oitc.admin.commands.AdminPanelCommand;
 import me.flame.oitc.admin.commands.SetSpawnCommand;
-import me.flame.oitc.admin.commands.VanishCommand;
 import me.flame.oitc.players.commands.ScoreboardCommand;
 import me.flame.oitc.players.commands.SpawnCommand;
 import me.flame.oitc.players.killrewards.managers.KillRewardManager;
@@ -19,7 +17,7 @@ import me.flame.oitc.players.managers.DatabaseManager;
 import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.players.settings.listeners.SettingsListener;
 import me.flame.oitc.players.shop.manager.ShopManager;
-import me.flame.oitc.players.topKills.TopKills;
+import me.flame.oitc.players.topKills.TopList;
 import me.flame.oitc.players.topKills.listeners.InventoryListenerTopKills;
 import me.flame.oitc.utils.FileManager;
 import me.flame.oitc.utils.ScoreboardUtils;
@@ -63,7 +61,7 @@ public final class Core extends JavaPlugin implements Listener {
         KillRewardManager.getInstance().loadKillRewards();
 
         // Basic user
-        TopKills.getInstance().loadTopKills();
+        TopList.getInstance().loadTopList();
 
         for(Player player : Bukkit.getOnlinePlayers()){
             userManager.loadUser(player.getUniqueId());

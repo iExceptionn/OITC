@@ -1,8 +1,5 @@
 package me.flame.oitc.players.managers;
 
-import com.google.common.base.Functions;
-import com.google.common.collect.ImmutableSortedMap;
-import com.google.common.collect.Ordering;
 import me.flame.oitc.Core;
 import me.flame.oitc.admin.adminpanel.managers.AdminPanelManager;
 import me.flame.oitc.players.User;
@@ -10,8 +7,6 @@ import me.flame.oitc.players.interfaces.IUser;
 import me.flame.oitc.players.killrewards.KillReward;
 import me.flame.oitc.players.killrewards.managers.KillRewardManager;
 import me.flame.oitc.players.settings.Settings;
-import me.flame.oitc.players.shop.Shop;
-import me.flame.oitc.players.topKills.TopKills;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.FileManager;
 import me.flame.oitc.utils.ItemBuilder;
@@ -19,9 +14,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

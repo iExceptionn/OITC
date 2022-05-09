@@ -1,13 +1,11 @@
 package me.flame.oitc.players.topKills.gui;
 
-import me.flame.oitc.Core;
 import me.flame.oitc.players.User;
-import me.flame.oitc.players.topKills.TopKills;
+import me.flame.oitc.players.topKills.TopList;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
@@ -20,11 +18,10 @@ public class TopListKillsGUI {
         int place = 1;
         int inventoryplace = 11;
 
-        for (String topKillsList2 : TopKills.sortedMap.keySet()) {
-            inventory.setItem(inventoryplace, new ItemBuilder(Material.PLAYER_HEAD, 1).setDisplayName("&a&l" + place + ": &7" + topKillsList2)
+        for (String topKillsList2 : TopList.sortedKillsMap.keySet()) {
+            inventory.setItem(inventoryplace, new ItemBuilder(Material.DIAMOND_SWORD, place).setDisplayName("&a&l" + place + ": &7" + topKillsList2)
                     .setLore("",
-                            " &8- &7This player has &a" + TopKills.sortedMap.get(topKillsList2) + " kills&7.")
-                    .setSkullOwner(topKillsList2).build());
+                            " &8- &7This player has &a" + TopList.sortedKillsMap.get(topKillsList2) + " kills&7.").build());
 
             place++;
             inventoryplace++;
