@@ -32,7 +32,7 @@ public class KillRewardManager implements IKillRewardManager {
 
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
 
-        switch (killReward.getName()){
+        switch (killReward.getName().toLowerCase()){
             default:
             case "regen":
                 p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, killReward.getTime() * 20, 1));
@@ -48,7 +48,7 @@ public class KillRewardManager implements IKillRewardManager {
     public KillReward getKillReward(String killReward) {
 
         for(KillReward killReward1 : killrewardsList){
-            if(killReward1.getName().equalsIgnoreCase(killReward.toLowerCase())){
+            if(killReward1.getName().contains(killReward)){
                 return killReward1;
             }
         }

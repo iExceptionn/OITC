@@ -154,8 +154,7 @@ public class UserManager implements IUser {
             }
         }
 
-        KillReward killReward = KillRewardManager.getInstance().getKillReward("regen");
-        KillRewardManager.getInstance().giveKillReward(user, killReward);
+        KillRewardManager.getInstance().giveKillReward(user, user.getKillReward());
 
         p.getInventory().addItem(new ItemBuilder(Material.ARROW, 1).setDisplayName("&fArrow").build());
 

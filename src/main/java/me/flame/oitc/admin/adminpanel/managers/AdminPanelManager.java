@@ -31,7 +31,6 @@ public class AdminPanelManager implements IAdminPanelManager {
         getAdminPanel().setXpActive(active);
 
         for(Player player : Bukkit.getServer().getOnlinePlayers()){
-            ScoreboardUtils.setScoreboard(player.getUniqueId());
             if(active == true){
                 player.sendMessage("");
                 player.sendMessage(ChatUtils.format("&a[OITC] &7There is a XP booster of &a" + booster + "&7 active now!"));
@@ -61,7 +60,6 @@ public class AdminPanelManager implements IAdminPanelManager {
         getAdminPanel().setCoinsActive(active);
 
         for(Player player : Bukkit.getServer().getOnlinePlayers()){
-            ScoreboardUtils.setScoreboard(player.getUniqueId());
             if(active == true){
                 player.sendMessage("");
                 player.sendMessage(ChatUtils.format("&a[OITC] &7There is a Coins booster of &a" + booster + "&7 active now!"));
