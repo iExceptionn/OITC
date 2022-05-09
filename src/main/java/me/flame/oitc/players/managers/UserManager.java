@@ -1,5 +1,8 @@
 package me.flame.oitc.players.managers;
 
+import com.google.common.base.Functions;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Ordering;
 import me.flame.oitc.Core;
 import me.flame.oitc.admin.adminpanel.managers.AdminPanelManager;
 import me.flame.oitc.players.User;
@@ -7,8 +10,10 @@ import me.flame.oitc.players.interfaces.IUser;
 import me.flame.oitc.players.killrewards.KillReward;
 import me.flame.oitc.players.killrewards.managers.KillRewardManager;
 import me.flame.oitc.players.settings.Settings;
+import me.flame.oitc.players.shop.Shop;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.FileManager;
+import me.flame.oitc.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -23,11 +28,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.SortedMap;
 import java.util.UUID;
 
 public class UserManager implements IUser {
 
     public static ArrayList<User> users = new ArrayList<>();
+    public static HashMap<String, Integer> topKillsList = new HashMap<>();
     private ArrowRespawnManager arrowRespawnManager = new ArrowRespawnManager();
     private AdminPanelManager adminPanelManager = new AdminPanelManager();
 
@@ -60,6 +67,18 @@ public class UserManager implements IUser {
             PreparedStatement playerData = connection.prepareStatement("SELECT * FROM `user_data` WHERE uuid = '" + uuid + "';");
             ResultSet resultPlayerData = playerData.executeQuery();
 
+            PreparedStatement topKills = connection.prepareStatement("SELECT * FROM `user_data` ORDER BY `kills` DESC LIMIT 3");
+            ResultSet resultTopKills = topKills.executeQuery();
+
+            while(resultTopKills.next()){
+
+                String name = resultTopKills.getString("name");
+                Integer kills = resultTopKills.getInt("kills");
+
+                topKillsList.put(name, kills);
+            }
+
+
             if (resultPlayerData.next()) {
 
                 User user;
@@ -78,6 +97,7 @@ public class UserManager implements IUser {
                 KillReward killReward = KillRewardManager.getInstance().getKillReward(killRewardName);
                 user = new User(playerName, uuid, coins, kills, deaths, 0, bestKillStreak, arrowLevel, armorLevel, swordLevel, color2, killReward);
                 users.add(user);
+
 
                 if(!Settings.getInstance().hasColorPermission(user, user.getArmorColor())){
                     user.setArmorColor(Color.LIME);
@@ -158,7 +178,7 @@ public class UserManager implements IUser {
         KillReward killReward = KillRewardManager.getInstance().getKillReward("regen");
         KillRewardManager.getInstance().giveKillReward(user, killReward);
 
-        p.getInventory().addItem(new ItemStack(Material.ARROW, 1));
+        p.getInventory().addItem(new ItemBuilder(Material.ARROW, 1).setDisplayName("&fArrow").build());
 
     }
 
