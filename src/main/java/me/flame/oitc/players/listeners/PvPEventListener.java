@@ -49,17 +49,18 @@ public class PvPEventListener implements Listener {
 
         if (e.getCause().equals(EntityDamageEvent.DamageCause.PROJECTILE)) {
             p.setHealth(0);
+            Player lastDamage = (Player) e.getDamager();
             new BukkitRunnable() {
                 public void run() {
                     p.spigot().respawn();
                 }
             }.runTaskLater(Core.getInstance(), 5L);
+            CombatLogger.getInstance().startCombat(lastDamage.getUniqueId(), 30);
             return;
         }
 
         if (e.getDamager() instanceof Player) {
             Player lastDamage = (Player) e.getDamager();
-            inFight.put(p.getUniqueId(), lastDamage.getUniqueId());
 
             CombatLogger.getInstance().startCombat(p.getUniqueId(), 30);
             CombatLogger.getInstance().startCombat(lastDamage.getUniqueId(), 30);
