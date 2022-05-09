@@ -1,16 +1,13 @@
 package me.flame.oitc.players.settings.gui;
 
-import javafx.scene.paint.Color;
 import me.flame.oitc.players.User;
 import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.ItemBuilder;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemFlag;
 
 public class SettingsGUI {
 
