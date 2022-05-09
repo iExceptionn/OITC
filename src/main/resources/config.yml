@@ -1,0 +1,22 @@
+###########################################
+# Plugin has been written for TurtleMC.   #
+# Discord.turtlemc.nl                     #
+# Developer: iException#1823              #
+# Version: v0.0.1                         #
+###########################################
+
+# Database login:
+database:
+  host: 127.0.0.1:3306
+  username: root
+  password: 123
+  databasename: OITC
+
+spawn:
+  location: []
+
+rewards:
+  coins-kill: 1 # This is the amount of coins a player will get.
+  coins-death: 0 # This is the amount of coins a player will lose when he dies.
+  arrow-timer: 300 # Respawn timer for a new arrow.
+  cooldown-reduce: 15 # Cooldown reduce * level.

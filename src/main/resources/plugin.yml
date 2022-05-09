@@ -1,0 +1,21 @@
+name: TurtleMC-OITC
+version: '${project.version}'
+main: me.flame.oitc.Core
+api-version: 1.15
+prefix: OITC
+authors: [ iException ]
+description: OITC plugin for TurtleMC
+website: http://turtlemc.net/
+commands:
+  setspawn:
+    description: [Setspawn command]
+  spawn:
+    description: [Spawn command]
+  coins:
+    description: [Coins command]
+  adminpanel:
+    description: [Adminpanel Command]
+    aliases: [adminp, admin, panel, ap]
+  scoreboard:
+    aliases: [sb]
+    description: Toggle your scoreboard.
