@@ -1,7 +1,7 @@
-package me.flame.oitc.players.commands.combat;
+package me.flame.oitc.players.combat;
 
 import me.flame.oitc.Core;
-import me.flame.oitc.players.commands.combat.interfaces.ICombatLogger;
+import me.flame.oitc.players.combat.interfaces.ICombatLogger;
 import me.flame.oitc.utils.ChatUtils;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;

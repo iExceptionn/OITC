@@ -1,7 +1,7 @@
 package me.flame.oitc.players.managers;
 
 import me.flame.oitc.Core;
-import me.flame.oitc.players.commands.combat.CombatLogger;
+import me.flame.oitc.players.combat.CombatLogger;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.ItemBuilder;
 import net.md_5.bungee.api.ChatMessageType;
@@ -9,7 +9,6 @@ import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;

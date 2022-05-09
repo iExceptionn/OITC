@@ -3,6 +3,7 @@ package me.flame.oitc.players.listeners;
 import me.flame.oitc.Core;
 import me.flame.oitc.admin.commands.VanishCommand;
 import me.flame.oitc.players.User;
+import me.flame.oitc.players.combat.CombatLogger;
 import me.flame.oitc.players.commands.SpawnCommand;
 import me.flame.oitc.players.kit.Kits;
 import me.flame.oitc.players.managers.UserManager;
@@ -62,6 +63,10 @@ public class UserListener implements Listener {
         // Save & unload user
         userManager.saveUser(user);
         userManager.removeUser(user);
+
+        if(CombatLogger.getInstance().getInCombat(p.getUniqueId())){
+            CombatLogger.getInstance().stopCombat(p.getUniqueId());
+        }
     }
 
     @EventHandler

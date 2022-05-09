@@ -1,6 +1,6 @@
 package me.flame.oitc.players.commands;
 
-import me.flame.oitc.players.commands.combat.CombatLogger;
+import me.flame.oitc.players.combat.CombatLogger;
 import me.flame.oitc.players.managers.ArrowRespawnManager;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.FileManager;

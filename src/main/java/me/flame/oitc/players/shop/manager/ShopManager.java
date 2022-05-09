@@ -27,10 +27,6 @@ public class ShopManager implements IShopManager {
             PreparedStatement shopData = connection.prepareStatement("SELECT * FROM `shop_data`");
             ResultSet resultSet = shopData.executeQuery();
 
-            //PreparedStatement test = connection.prepareStatement("SELECT * FROM `user_data` ORDER BY `kills` DESC LIMIT 3");
-            ///ResultSet test2 = test.executeQuery();
-
-
             while(resultSet.next()){
                 Shop shop;
 

@@ -1,4 +1,4 @@
-package me.flame.oitc.players.commands.combat.interfaces;
+package me.flame.oitc.players.combat.interfaces;
 
 import java.util.UUID;
 

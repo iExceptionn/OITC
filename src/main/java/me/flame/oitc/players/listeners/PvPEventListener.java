@@ -3,7 +3,7 @@ package me.flame.oitc.players.listeners;
 import me.flame.oitc.Core;
 import me.flame.oitc.players.User;
 import me.flame.oitc.players.commands.SpawnCommand;
-import me.flame.oitc.players.commands.combat.CombatLogger;
+import me.flame.oitc.players.combat.CombatLogger;
 import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.utils.ChatUtils;
 import org.bukkit.Bukkit;
