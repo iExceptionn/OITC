@@ -6,6 +6,7 @@ import me.flame.oitc.players.settings.gui.SettingsGUI;
 import me.flame.oitc.players.shop.Shop;
 import me.flame.oitc.players.shop.gui.ShopGUI;
 import me.flame.oitc.players.shop.manager.ShopManager;
+import me.flame.oitc.players.topKills.gui.TopListSelectorGUI;
 import me.flame.oitc.utils.ChatUtils;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -22,6 +23,7 @@ public class InventoryListener implements Listener {
     public static ShopGUI shopGUI = new ShopGUI();
     private ShopManager shopManager = new ShopManager();
     private SettingsGUI settingsGUI = new SettingsGUI();
+    private TopListSelectorGUI topListSelectorGUI = new TopListSelectorGUI();
 
     @EventHandler
     public void inventoryClickEvent(InventoryClickEvent e) {
@@ -87,6 +89,10 @@ public class InventoryListener implements Listener {
 
                 if(e.getItem().getType() == Material.CHEST){
                     settingsGUI.openSettingsGUI(UserManager.getUser(p.getUniqueId()));
+                }
+
+                if(e.getItem().getType() == Material.CLOCK){
+                    topListSelectorGUI.topListSelectorGUI(UserManager.getUser(p.getUniqueId()));
                 }
             }
         }

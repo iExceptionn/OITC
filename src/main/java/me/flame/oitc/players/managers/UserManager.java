@@ -11,6 +11,7 @@ import me.flame.oitc.players.killrewards.KillReward;
 import me.flame.oitc.players.killrewards.managers.KillRewardManager;
 import me.flame.oitc.players.settings.Settings;
 import me.flame.oitc.players.shop.Shop;
+import me.flame.oitc.players.topKills.TopKills;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.FileManager;
 import me.flame.oitc.utils.ItemBuilder;
@@ -28,13 +29,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.SortedMap;
 import java.util.UUID;
 
 public class UserManager implements IUser {
 
     public static ArrayList<User> users = new ArrayList<>();
-    public static HashMap<String, Integer> topKillsList = new HashMap<>();
     private ArrowRespawnManager arrowRespawnManager = new ArrowRespawnManager();
     private AdminPanelManager adminPanelManager = new AdminPanelManager();
 
@@ -66,18 +65,6 @@ public class UserManager implements IUser {
 
             PreparedStatement playerData = connection.prepareStatement("SELECT * FROM `user_data` WHERE uuid = '" + uuid + "';");
             ResultSet resultPlayerData = playerData.executeQuery();
-
-            PreparedStatement topKills = connection.prepareStatement("SELECT * FROM `user_data` ORDER BY `kills` DESC LIMIT 3");
-            ResultSet resultTopKills = topKills.executeQuery();
-
-            while(resultTopKills.next()){
-
-                String name = resultTopKills.getString("name");
-                Integer kills = resultTopKills.getInt("kills");
-
-                topKillsList.put(name, kills);
-            }
-
 
             if (resultPlayerData.next()) {
 

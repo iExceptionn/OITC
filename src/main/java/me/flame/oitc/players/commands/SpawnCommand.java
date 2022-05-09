@@ -67,6 +67,7 @@ public class SpawnCommand implements CommandExecutor {
         String[] loc = locatie.split(";");
         p.teleport(new Location(Bukkit.getServer().getWorld(loc[0]), Double.valueOf(loc[1]), Double.valueOf(loc[2]), Double.valueOf(loc[3]), Float.valueOf(loc[4]), Float.valueOf(loc[5])));
 
+        p.getInventory().setItem(2, new ItemBuilder(Material.CLOCK, 1).setDisplayName("&aHall Of Fame").build());
         p.getInventory().setItem(4, new ItemBuilder(Material.EMERALD, 1).setDisplayName("&aShop").build());
         p.getInventory().setItem(6, new ItemBuilder(Material.CHEST, 1).setDisplayName("&aSettings").build());
 

@@ -19,6 +19,8 @@ import me.flame.oitc.players.managers.DatabaseManager;
 import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.players.settings.listeners.SettingsListener;
 import me.flame.oitc.players.shop.manager.ShopManager;
+import me.flame.oitc.players.topKills.TopKills;
+import me.flame.oitc.players.topKills.listeners.InventoryListenerTopKills;
 import me.flame.oitc.utils.FileManager;
 import me.flame.oitc.utils.ScoreboardUtils;
 import org.bukkit.Bukkit;
@@ -61,6 +63,7 @@ public final class Core extends JavaPlugin implements Listener {
         KillRewardManager.getInstance().loadKillRewards();
 
         // Basic user
+        TopKills.getInstance().loadTopKills();
 
         for(Player player : Bukkit.getOnlinePlayers()){
             userManager.loadUser(player.getUniqueId());
@@ -117,6 +120,7 @@ public final class Core extends JavaPlugin implements Listener {
         pm.registerEvents(new InventoryListener(), this);
         pm.registerEvents(new AdminPanelInventoryListener(), this);
         pm.registerEvents(new SettingsListener(), this);
+        pm.registerEvents(new InventoryListenerTopKills(), this);
     }
 
     private void registerCommands(){
