@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.SortedMap;
 
 public class TopList implements ITopList {
-    private static TopList instance = new TopList();
+    final private static TopList instance = new TopList();
     public static HashMap<String, Integer> topKillsList = new HashMap<>();
     public static HashMap<String, Integer> topStreakList = new HashMap<>();
     public static HashMap<String, Integer> topDeathList = new HashMap<>();
@@ -29,6 +29,10 @@ public class TopList implements ITopList {
 
     @Override
     public void loadTopList() {
+
+        topKillsList.clear();
+        topStreakList.clear();
+        topDeathList.clear();
 
         try (Connection connection = Core.hikari.getConnection()) {
 
@@ -41,7 +45,7 @@ public class TopList implements ITopList {
             PreparedStatement topDeath = connection.prepareStatement("SELECT * FROM `user_data` ORDER BY `deaths` DESC LIMIT 5");
             ResultSet resulttopDeath = topDeath.executeQuery();
 
-            while(resultTopKills.next()){
+            while (resultTopKills.next()) {
 
                 String name = resultTopKills.getString("name");
                 Integer kills = resultTopKills.getInt("kills");
@@ -49,7 +53,7 @@ public class TopList implements ITopList {
                 topKillsList.put(name, kills);
             }
 
-            while(resultTopStreak.next()){
+            while (resultTopStreak.next()) {
 
                 String name = resultTopStreak.getString("name");
                 Integer streak = resultTopStreak.getInt("bestStreak");
@@ -57,7 +61,7 @@ public class TopList implements ITopList {
                 topStreakList.put(name, streak);
             }
 
-            while(resulttopDeath.next()){
+            while (resulttopDeath.next()) {
 
                 String name = resulttopDeath.getString("name");
                 Integer deaths = resulttopDeath.getInt("deaths");
@@ -81,20 +85,17 @@ public class TopList implements ITopList {
     @Override
     public void refreshTimer() {
 
-        new BukkitRunnable(){
+        new BukkitRunnable() {
 
             @Override
             public void run() {
-                topKillsList.clear();
-                topKillsList.clear();
-                topDeathList.clear();
 
-                for(Player online : Bukkit.getServer().getOnlinePlayers()){
+                for (Player online : Bukkit.getServer().getOnlinePlayers()) {
                     User user = UserManager.getUser(online.getUniqueId());
                     userManager.saveUser(user);
 
                     userManager.loadUser(user.getUuid());
-
+                    Core.getInstance().getLogger().info("I have reloaded the top 5 list's!");
                     loadTopList();
                 }
 

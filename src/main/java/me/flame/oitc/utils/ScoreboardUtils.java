@@ -45,12 +45,12 @@ public class ScoreboardUtils {
         Objective objective = scoreboard.registerNewObjective("noflicker", "Dummy");
 
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-        objective.setDisplayName(ChatUtils.format("&a&lTurtleMC &8| &fOITC"));
+        objective.setDisplayName(ChatUtils.format("&5&lVoid&d&lCraft &8| &fOITC"));
 
         Score cspacer3 = objective.getScore(ChatUtils.format("&3"));
         cspacer3.setScore(14);
 
-        Score playerName = objective.getScore(ChatUtils.format("&a" + user.getName()));
+        Score playerName = objective.getScore(ChatUtils.format("&d" + user.getName()));
         playerName.setScore(13);
 
         Team ping = scoreboard.registerNewTeam("ping");
@@ -66,7 +66,7 @@ public class ScoreboardUtils {
         Score cspacer2 = objective.getScore(ChatUtils.format("&2"));
         cspacer2.setScore(9);
 
-        Score playerStats = objective.getScore(ChatUtils.format("&aStats"));
+        Score playerStats = objective.getScore(ChatUtils.format("&dStats"));
         playerStats.setScore(8);
 
         Team kills = scoreboard.registerNewTeam("kills");
@@ -97,7 +97,7 @@ public class ScoreboardUtils {
         Score cspacer1 = objective.getScore(ChatUtils.format("&1"));
         cspacer1.setScore(2);
 
-        Score footer = objective.getScore(ChatUtils.format("&7play.turtlemc.nl"));
+        Score footer = objective.getScore(ChatUtils.format("&7play.voidcraft.nl"));
         footer.setScore(1);
 
         new BukkitRunnable() {
