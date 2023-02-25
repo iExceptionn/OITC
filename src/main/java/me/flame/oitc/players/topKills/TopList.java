@@ -74,6 +74,8 @@ public class TopList implements ITopList {
             sortedDeathMap = ImmutableSortedMap.copyOf(topDeathList, Ordering.natural().reverse().onResultOf(Functions.forMap(topDeathList)).compound(Ordering.natural()));
 
             Core.getInstance().getLogger().info("Top " + sortedKillsMap.size() + " kills loaded");
+            Core.getInstance().getLogger().info("Top " + sortedDeathMap.size() + " deaths loaded");
+            Core.getInstance().getLogger().info("Top " + sortedStreakMap.size() + " killstreaks loaded");
 
         } catch (Exception e) {
             e.printStackTrace();

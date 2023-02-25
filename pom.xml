@@ -9,7 +9,7 @@
     <version>1.0-BETA</version>
     <packaging>jar</packaging>
 
-    <name>TurtleMC-OITC</name>
+    <name>OITC</name>
 
     <description>OITC plugin for TurtleMC</description>
     <properties>

@@ -1,4 +1,4 @@
-name: TurtleMC-OITC
+name: OITC
 version: '${project.version}'
 main: me.flame.oitc.Core
 api-version: 1.15
