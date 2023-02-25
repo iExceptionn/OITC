@@ -24,7 +24,7 @@ public class CombatLogger implements ICombatLogger {
 
         if (!getInCombat(uuid)) {
             combatTimer.put(uuid, time);
-            Bukkit.getServer().getPlayer(uuid).sendMessage(ChatUtils.format(Core.getPrefix() + "&7YJe zit nu in gevecht voor &a" + time + " &7seconden."));
+            Bukkit.getServer().getPlayer(uuid).sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je zit nu in gevecht voor &a" + time + " &7seconden."));
             combatRunnable.put(uuid, new BukkitRunnable() {
                 @Override
                 public void run() {
