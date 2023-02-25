@@ -19,6 +19,7 @@ import me.flame.oitc.players.settings.listeners.SettingsListener;
 import me.flame.oitc.players.shop.manager.ShopManager;
 import me.flame.oitc.players.topKills.TopList;
 import me.flame.oitc.players.topKills.listeners.InventoryListenerTopKills;
+import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.FileManager;
 import me.flame.oitc.utils.ScoreboardUtils;
 import org.bukkit.Bukkit;
@@ -38,7 +39,7 @@ public final class Core extends JavaPlugin implements Listener {
     private static final ShopManager shopManager = new ShopManager();
     private static final AdminPanelManager adminPanelManager = new AdminPanelManager();
 
-    public static Core getInstance(){
+    public static Core getInstance() {
         return instance;
     }
 
@@ -63,7 +64,7 @@ public final class Core extends JavaPlugin implements Listener {
         // Basic user
         TopList.getInstance().loadTopList();
 
-        for(Player player : Bukkit.getOnlinePlayers()){
+        for (Player player : Bukkit.getOnlinePlayers()) {
             userManager.loadUser(player.getUniqueId());
             scoreboardUtils.setScoreboard(player.getUniqueId());
             spawnCommand.sendToSpawn(player.getUniqueId());
@@ -76,7 +77,7 @@ public final class Core extends JavaPlugin implements Listener {
         getLogger().info("TurtleMC OITC has been disabled! (Beta Version)");
 
         // Basic User stuff
-        for(Player player : Bukkit.getOnlinePlayers()){
+        for (Player player : Bukkit.getOnlinePlayers()) {
             userManager.saveUser(UserManager.getUser(player.getUniqueId()));
             userManager.removeUser(UserManager.getUser(player.getUniqueId()));
             ArrowRespawnManager.getInstance().removeTimer(player.getUniqueId());
@@ -86,7 +87,7 @@ public final class Core extends JavaPlugin implements Listener {
         closeConnection();
     }
 
-    public void connectMysql(){
+    public void connectMysql() {
         hikari = new HikariDataSource();
         hikari.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
 
@@ -109,9 +110,9 @@ public final class Core extends JavaPlugin implements Listener {
 
     }
 
-    private void registerEvents(){
+    private void registerEvents() {
         PluginManager pm = Bukkit.getPluginManager();
-        pm.registerEvents(this , this);
+        pm.registerEvents(this, this);
 
         pm.registerEvents(new UserListener(), this);
         pm.registerEvents(new PvPEventListener(), this);
@@ -121,7 +122,7 @@ public final class Core extends JavaPlugin implements Listener {
         pm.registerEvents(new InventoryListenerTopKills(), this);
     }
 
-    private void registerCommands(){
+    private void registerCommands() {
         getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("coins").setExecutor(new AdminCoinsCommand());
@@ -129,11 +130,17 @@ public final class Core extends JavaPlugin implements Listener {
         getCommand("scoreboard").setExecutor(new ScoreboardCommand());
     }
 
-    private void closeConnection(){
-        if(hikari != null){
+    private void closeConnection() {
+        if (hikari != null) {
             hikari.close();
             hikari = null;
         }
+    }
+
+    public static String getPrefix() {
+
+        return ChatUtils.format("&8[&aOITC&8]");
+
     }
 
 }

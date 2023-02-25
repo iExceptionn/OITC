@@ -1,5 +1,6 @@
 package me.flame.oitc.players.commands;
 
+import me.flame.oitc.Core;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.ScoreboardUtils;
 import org.bukkit.Bukkit;
@@ -24,7 +25,7 @@ public class ScoreboardCommand implements CommandExecutor {
             if (args.length == 0) {
                 if (toggledScoreboard.contains(p.getUniqueId())) {
 
-                    p.sendMessage(ChatUtils.format("&a[OITC] &7Scoreboard &aenabled."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Scoreboard &aenabled."));
                     ScoreboardUtils.setScoreboard(p.getUniqueId());
                     toggledScoreboard.remove(p.getUniqueId());
                     return true;
