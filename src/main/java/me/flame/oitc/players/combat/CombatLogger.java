@@ -24,14 +24,14 @@ public class CombatLogger implements ICombatLogger {
 
         if (!getInCombat(uuid)) {
             combatTimer.put(uuid, time);
-            Bukkit.getServer().getPlayer(uuid).sendMessage(ChatUtils.format("&a[OITC] &7You are now in combat for &a" + time + " &7seconds."));
+            Bukkit.getServer().getPlayer(uuid).sendMessage(ChatUtils.format(Core.getPrefix() + "&7YJe zit nu in gevecht voor &a" + time + " &7seconden."));
             combatRunnable.put(uuid, new BukkitRunnable() {
                 @Override
                 public void run() {
 
                     if(getInCombat(uuid)){
                         combatTimer.put(uuid, combatTimer.get(uuid) - 1);
-                        Bukkit.getServer().getPlayer(uuid).spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtils.format("&8<&a!&8> &fYou are in combat for &a" + getCombatTimer(uuid) + " &fseconds. &8<&a!&8>")));
+                        Bukkit.getServer().getPlayer(uuid).spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtils.format("&8<&a!&8> &fJe bent nu in gevecht voor &a" + getCombatTimer(uuid) + " &fseconden. &8<&a!&8>")));
 
                     }
                     if(getCombatTimer(uuid) <= 0){
@@ -54,7 +54,7 @@ public class CombatLogger implements ICombatLogger {
             combatRunnable.get(uuid).cancel();
             combatRunnable.remove(uuid);
             combatTimer.remove(uuid);
-            p.sendMessage(ChatUtils.format("&a[OITC] &7You are no longer in combat."));
+            p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je bent niet meer in gevecht."));
         }
     }
 
