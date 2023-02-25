@@ -25,13 +25,13 @@ public class ScoreboardCommand implements CommandExecutor {
             if (args.length == 0) {
                 if (toggledScoreboard.contains(p.getUniqueId())) {
 
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Scoreboard &aenabled."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Scoreboard &aaangezet."));
                     ScoreboardUtils.setScoreboard(p.getUniqueId());
                     toggledScoreboard.remove(p.getUniqueId());
                     return true;
                 }
 
-                p.sendMessage(ChatUtils.format("&a[OITC] &7Scoreboard &cdisabled."));
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Scoreboard &cuitgezet."));
                 p.setScoreboard(Bukkit.getServer().getScoreboardManager().getNewScoreboard());
                 toggledScoreboard.add(p.getUniqueId());
                 return true;
@@ -40,7 +40,7 @@ public class ScoreboardCommand implements CommandExecutor {
             if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("on")) {
 
-                    p.sendMessage(ChatUtils.format("&a[OITC] &7Scoreboard &aenabled."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Scoreboard &aaangezet."));
                     ScoreboardUtils.setScoreboard(p.getUniqueId());
                     if (toggledScoreboard.contains(p.getUniqueId())) {
                         toggledScoreboard.remove(p.getUniqueId());
@@ -48,7 +48,7 @@ public class ScoreboardCommand implements CommandExecutor {
                     return true;
 
                 } else if (args[0].equalsIgnoreCase("off")) {
-                    p.sendMessage(ChatUtils.format("&a[OITC] &7Scoreboard &cdisabled."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Scoreboard &cuitgezet."));
                     p.setScoreboard(Bukkit.getServer().getScoreboardManager().getNewScoreboard());
                     if (!toggledScoreboard.contains(p.getUniqueId())) {
                         toggledScoreboard.add(p.getUniqueId());
@@ -58,9 +58,9 @@ public class ScoreboardCommand implements CommandExecutor {
                 }
             }
         }
-        sender.sendMessage(ChatUtils.format("&7You do not have the permissions for this command."));
-        sender.sendMessage(ChatUtils.format("&7If you want to turn off the scoreboard buy a rank at"));
-        sender.sendMessage(ChatUtils.format("&ahttp://store.turtlemc.nl/"));
+        sender.sendMessage(ChatUtils.format("&7YJe hebt geen rechten voor dit commando."));
+        sender.sendMessage(ChatUtils.format("&7Als je het scoreboard aan of uit wilt zetten koop een rank op"));
+        sender.sendMessage(ChatUtils.format("&ahttp://winkel.voidcraft.nl/"));
 
         return false;
     }
