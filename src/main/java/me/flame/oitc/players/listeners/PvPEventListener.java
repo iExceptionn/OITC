@@ -97,15 +97,15 @@ public class PvPEventListener implements Listener {
 
                 if(user.getKillstreak() >= 5){
                     for(Player online : Bukkit.getServer().getOnlinePlayers()){
-                        online.sendMessage(ChatUtils.format("&a[OITC] &f" + target.getName() + " &7killed &f" + p.getName() + " &7with a killstreak of &f" + user.getKillstreak() + "&7!"));
+                        online.sendMessage(ChatUtils.format(Core.getPrefix() + "&f" + target.getName() + " &7vermoorde &f" + p.getName() + " &7met een killstreak van &f" + user.getKillstreak() + "&7!"));
                     }
                 }
 
                 userManager.removeRewards(user);
                 userManager.addRewards(TUser);
 
-                p.sendMessage(ChatUtils.format("&a[OITC] &7You have been killed by &a" + target.getName()));
-                target.sendMessage(ChatUtils.format("&a[OITC] &7You have killed &a" + p.getName()));
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je bent vermoord door &a" + target.getName()));
+                target.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je vermoorde &a" + p.getName()));
 
                 return;
             }
@@ -124,7 +124,7 @@ public class PvPEventListener implements Listener {
 
             if(user.getKillstreak() >= 5){
                 for(Player online : Bukkit.getServer().getOnlinePlayers()){
-                    online.sendMessage(ChatUtils.format("&a[OITC] &f" + target.getName() + " &7killed &f" + p.getName() + " &7with a killstreak of &f" + user.getKillstreak() + "&7!"));
+                    online.sendMessage(ChatUtils.format(Core.getPrefix() + "&f" + target.getName() + " &7vermoorde &f" + p.getName() + " &7met een killstreak van &f" + user.getKillstreak() + "&7!"));
                 }
             }
 
@@ -132,8 +132,8 @@ public class PvPEventListener implements Listener {
             userManager.addRewards(TUser);
 
 
-            p.sendMessage(ChatUtils.format("&a[OITC] &7You have been killed by &a" + target.getName()));
-            target.sendMessage(ChatUtils.format("&a[OITC] &7You have killed &a" + p.getName()));
+            p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je bent vermoord door &a" + target.getName()));
+            target.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je vermoorde &a" + p.getName()));
 
 
             return;
