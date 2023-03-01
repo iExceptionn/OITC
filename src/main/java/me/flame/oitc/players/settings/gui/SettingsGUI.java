@@ -16,27 +16,25 @@ public class SettingsGUI {
     public Inventory openSettingsGUI(User user) {
 
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&aSettings"));
+        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&aInstellingen"));
 
-        inventory.setItem(11, new ItemBuilder(Material.ANVIL, 1).setDisplayName("&aKill Rewards")
+        inventory.setItem(11, new ItemBuilder(Material.ANVIL, 1).setDisplayName("&aKill beloningen")
                 .setLore(""
-                        , "&7&oHere you can select"
-                        , "&7&oyour kill reward / effect.").build());
+                        , "&7&oBekijk je kill beloningen").build());
 
-        inventory.setItem(13, new ItemBuilder(Material.WRITABLE_BOOK, 1).setDisplayName("&aStatistics")
+        inventory.setItem(13, new ItemBuilder(Material.WRITABLE_BOOK, 1).setDisplayName("&aStatistieken")
                 .setLore(""
-                        , "&7&oHere you can open"
-                        , "&7&oyour own statistic pages.").build());
+                        , "&7&oBekijk hier je statistieken").build());
 
-        inventory.setItem(15, new ItemBuilder(Material.LIME_DYE, 1).setDisplayName("&aColor Selector")
+        inventory.setItem(15, new ItemBuilder(Material.LIME_DYE, 1).setDisplayName("&aKleurkiezer")
                 .setLore(""
-                        , " &fCurrent color: &a" + userManager.getColorName(user.getArmorColor())
+                        , " &fHuidige kleur: &a" + userManager.getColorName(user.getArmorColor())
                         , ""
-                        , "&7&oHere you can select"
-                        , "&7&othe color of your armor."
+                        , "&7&oHier kan je een andere"
+                        , "&7&kleur kiezen voor je armor."
                         , ""
-                        , "&7&oYou can get these by buying a"
-                        , "&7&orank or unlocking them in the shop.").build());
+                        , "&7&oJe kunt deze krijgen door een rank"
+                        , "&7&ote kopen of hem te unlocken.").build());
 
         inventory.setContents(inventory.getContents());
         p.openInventory(inventory);
