@@ -18,7 +18,7 @@ public class ColorSelectorGUI {
     public Inventory colorSelectorGUI(User user) {
 
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&aColor Selector"));
+        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&aKleuren Selector"));
 
         inventory.setItem(10, new ItemBuilder(Material.LIME_STAINED_GLASS_PANE, 1)
                 .setDisplayName("&aLimegroen" + ((user.getArmorColor() == Color.LIME) ? " &f&o(GESELECTEERD)" : ""))
