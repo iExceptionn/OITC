@@ -24,9 +24,12 @@ public class Settings implements ISettings {
     @Override
     public Boolean hasColorPermission(User user, Color color) {
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        if (p.hasPermission("oitc.color." + userManager.getColorName(color)) || p.hasPermission("oitc.color.all")) {
+        if(user.getUnlockedColors().contains(userManager.getColorName(color))){
             return true;
         }
+        //if (p.hasPermission("oitc.color." + userManager.getColorName(color)) || p.hasPermission("oitc.color.all")) {
+        //    return true;
+        //}
         return false;
     }
 

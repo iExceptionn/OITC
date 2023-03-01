@@ -22,17 +22,13 @@ public class ShopGUI {
     public Inventory openShopGUI(User user) {
 
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&7Shop: &a" + user.getName()));
+        Inventory inventory = Bukkit.createInventory(null, 36, ChatUtils.format("&7Shop: &a" + user.getName()));
 
         Integer cooldown = FileManager.get("config.yml").getInt("rewards.arrow-timer");
         Integer cooldownReduce = FileManager.get("config.yml").getInt("rewards.cooldown-reduce");
 
-        inventory.setItem(10, new ItemBuilder(Material.EMERALD, 1).setDisplayName("&aColor Shop &c(SOON)")
-                .setLore(""
-                        , "&7&oHere you can buy new colors for your armor."
-                        , "&7&oThis feature is coming soon.").setEnchanted().setItemFlag(ItemFlag.HIDE_ENCHANTS).build());
 
-        inventory.setItem(12, new ItemBuilder(Material.ARROW, 1).setDisplayName("&aArrow Timer")
+        inventory.setItem(11, new ItemBuilder(Material.ARROW, 1).setDisplayName("&aArrow Timer")
                 .setLore(""
                         , "&f Current level: &a" + (user.getArrowLevel() >= 5 ? "&cMax Level" : user.getArrowLevel())
                         , "&f Current cooldown: &a" + (cooldown - (cooldownReduce * user.getArrowLevel())) + " &7(-" + cooldownReduce * user.getArrowLevel() + " seconds)"
@@ -42,11 +38,21 @@ public class ShopGUI {
                         , "&7&oUpgrading your Arrow Timer will give your a"
                         , "&7&ocooldown reduction of &f&o15 seconds&7&o.").build());
 
-        inventory.setItem(14, new ItemBuilder(Material.DIAMOND_CHESTPLATE, 1).setDisplayName("&aArmor").setLore(armorLore(user))
+        inventory.setItem(13, new ItemBuilder(Material.DIAMOND_CHESTPLATE, 1).setDisplayName("&aArmor").setLore(armorLore(user))
                 .setItemFlag(ItemFlag.HIDE_ATTRIBUTES).build());
 
-        inventory.setItem(16, new ItemBuilder(Material.DIAMOND_SWORD, 1).setDisplayName("&aSword").setLore(swordLore(user))
+        inventory.setItem(15, new ItemBuilder(Material.DIAMOND_SWORD, 1).setDisplayName("&aSword").setLore(swordLore(user))
                 .setItemFlag(ItemFlag.HIDE_ATTRIBUTES).build());
+
+        inventory.setItem(21, new ItemBuilder(Material.EMERALD, 1).setDisplayName("&aColor Shop &c(SOON)")
+                .setLore(""
+                        , "&7&oHere you can buy new colors for your armor."
+                        , "&7&oThis feature is coming soon.").setEnchanted().setItemFlag(ItemFlag.HIDE_ENCHANTS).build());
+
+        inventory.setItem(23, new ItemBuilder(Material.ANVIL, 1).setDisplayName("&aKill Rewards &c(SOON)")
+                .setLore(""
+                        , "&7&oHere you can buy new kill rewards / effects."
+                        , "&7&oThis feature is coming soon.").setEnchanted().setItemFlag(ItemFlag.HIDE_ENCHANTS).build());
 
         inventory.setContents(inventory.getContents());
         p.openInventory(inventory);

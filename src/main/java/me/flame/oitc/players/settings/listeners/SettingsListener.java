@@ -71,8 +71,8 @@ public class SettingsListener implements Listener {
                 return;
             }
             if (e.getCurrentItem().getType() == Material.PINK_STAINED_GLASS_PANE) {
-                if (settings.hasColorPermission(user, Color.PURPLE)) {
-                    settings.setArmorColor(user, Color.PURPLE);
+                if (settings.hasColorPermission(user, Color.FUCHSIA)) {
+                    settings.setArmorColor(user, Color.FUCHSIA);
                     p.sendMessage(ChatUtils.format("&a[OITC] &7You have changed your armor color to &dPink&7."));
                     p.closeInventory();
                 }
@@ -95,8 +95,8 @@ public class SettingsListener implements Listener {
                 return;
             }
             if (e.getCurrentItem().getType() == Material.PURPLE_STAINED_GLASS_PANE) {
-                if (settings.hasColorPermission(user, Color.FUCHSIA)) {
-                    settings.setArmorColor(user, Color.FUCHSIA);
+                if (settings.hasColorPermission(user, Color.PURPLE)) {
+                    settings.setArmorColor(user, Color.PURPLE);
                     p.sendMessage(ChatUtils.format("&a[OITC] &7You have changed your armor color to &5Purple&7."));
                     p.closeInventory();
                 }

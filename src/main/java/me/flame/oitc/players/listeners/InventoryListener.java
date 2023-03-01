@@ -4,6 +4,7 @@ import me.flame.oitc.players.User;
 import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.players.settings.gui.SettingsGUI;
 import me.flame.oitc.players.shop.Shop;
+import me.flame.oitc.players.shop.gui.ColorShopGUI;
 import me.flame.oitc.players.shop.gui.ShopGUI;
 import me.flame.oitc.players.shop.manager.ShopManager;
 import me.flame.oitc.players.topKills.gui.TopListSelectorGUI;
@@ -21,6 +22,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 public class InventoryListener implements Listener {
 
     public static ShopGUI shopGUI = new ShopGUI();
+    public static ColorShopGUI colorShopGUI = new ColorShopGUI();
     private ShopManager shopManager = new ShopManager();
     private SettingsGUI settingsGUI = new SettingsGUI();
     private TopListSelectorGUI topListSelectorGUI = new TopListSelectorGUI();
@@ -72,6 +74,16 @@ public class InventoryListener implements Listener {
                 }
                 p.sendMessage(ChatUtils.format("&a[OITC] &7You do not have enough coins to upgrade your &aSword&7."));
                 p.closeInventory();
+            }
+            if(e.getCurrentItem().getType() == Material.EMERALD){
+                colorShopGUI.colorInventory(user);
+            }
+        }
+
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&7Color-Shop: &a"))) {
+            e.setCancelled(true);
+            if(e.getCurrentItem().getType() == Material.ARROW){
+                shopGUI.openShopGUI(user);
             }
         }
     }

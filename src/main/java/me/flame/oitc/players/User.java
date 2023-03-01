@@ -3,6 +3,7 @@ package me.flame.oitc.players;
 import me.flame.oitc.players.killrewards.KillReward;
 import org.bukkit.Color;
 
+import java.util.List;
 import java.util.UUID;
 
 public class User {
@@ -20,9 +21,12 @@ public class User {
     private Color armorColor;
     private KillReward killReward;
 
+    private List<String> unlockedColors;
+    private List<String> unlockedRewards;
 
 
-    public User(String name, UUID uuid, Double coins, Integer kills, Integer deaths, Integer killstreak, Integer bestKillstreak, Integer arrowLevel, Integer armorLevel, Integer swordLevel, Color armorColor, KillReward killReward){
+
+    public User(String name, UUID uuid, Double coins, Integer kills, Integer deaths, Integer killstreak, Integer bestKillstreak, Integer arrowLevel, Integer armorLevel, Integer swordLevel, Color armorColor, KillReward killReward, List<String> unlockedColors, List<String> unlockedRewards){
         this.name = name;
         this.uuid = uuid;
         this.coins = coins;
@@ -35,6 +39,8 @@ public class User {
         this.swordLevel = swordLevel;
         this.armorColor = armorColor;
         this.killReward = killReward;
+        this.unlockedColors = unlockedColors;
+        this.unlockedRewards = unlockedRewards;
 
     }
 
@@ -124,5 +130,21 @@ public class User {
 
     public void setKillReward(KillReward killReward) {
         this.killReward = killReward;
+    }
+
+    public List<String> getUnlockedColors() {
+        return unlockedColors;
+    }
+
+    public void setUnlockedColors(List<String> unlockedColors) {
+        this.unlockedColors = unlockedColors;
+    }
+
+    public List<String> getUnlockedRewards() {
+        return unlockedRewards;
+    }
+
+    public void setUnlockedRewards(List<String> unlockedRewards) {
+        this.unlockedRewards = unlockedRewards;
     }
 }

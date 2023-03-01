@@ -72,9 +72,24 @@ public class UserManager implements IUser {
                 String color = resultPlayerData.getString("color");
 
                 Color color2 = getColor(color);
-                String killRewardName = "regen";
+                String killRewardName = resultPlayerData.getString("killreward");
                 KillReward killReward = KillRewardManager.getInstance().getKillReward(killRewardName);
-                user = new User(playerName, uuid, coins, kills, deaths, 0, bestKillStreak, arrowLevel, armorLevel, swordLevel, color2, killReward);
+
+                ArrayList<String> unlockedColors = new ArrayList<>();
+                String unlockedColorsString = resultPlayerData.getString("bought-colors");
+                String unlockedClrString[] = unlockedColorsString.split(";");
+                for(String string : unlockedClrString){
+                    unlockedColors.add(string);
+                }
+
+                ArrayList<String> unlockedRewards = new ArrayList<>();
+                String unlockedRewardsString = resultPlayerData.getString("bought-rewards");
+                String unlockedRwdString[] = unlockedRewardsString.split(";");
+                for(String string : unlockedRwdString){
+                    unlockedRewards.add(string);
+                }
+
+                user = new User(playerName, uuid, coins, kills, deaths, 0, bestKillStreak, arrowLevel, armorLevel, swordLevel, color2, killReward, unlockedColors, unlockedRewards);
                 users.add(user);
 
 
@@ -112,6 +127,9 @@ public class UserManager implements IUser {
             playerData.executeUpdate("UPDATE `user_data` set `swordLevel` = '" + user.getSwordLevel() + "' WHERE uuid = '" + uuid + "';");
             String color = getColorName(user.getArmorColor());
             playerData.executeUpdate("UPDATE `user_data` set `color` = '" + color + "' WHERE uuid = '" + uuid + "';");
+
+            String killeffect = KillRewardManager.getInstance().killRewardToString(user.getKillReward());
+            playerData.executeUpdate("UPDATE `user_data` set `killreward` = '" + killeffect + "' WHERE uuid = '" + uuid + "';");
 
             playerData.close();
         } catch (Exception e) {
