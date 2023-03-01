@@ -107,6 +107,28 @@ public class ShopManager implements IShopManager {
         return false;
     }
 
+    @Override
+    public Boolean enoughCoins(User user, Integer coins) {
+        if(user.getCoins() >= coins){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void unlockColor(User user, String color, Integer coins) {
+
+        if(enoughCoins(user, coins)){
+            if(!user.getUnlockedColors().contains(color)){
+                List<String> unlockColor = user.getUnlockedColors();
+                unlockColor.add(color);
+                user.setUnlockedColors(unlockColor);
+                user.setCoins(user.getCoins() - coins);
+            }
+        }
+
+    }
+
     public static Shop getShop(String name) {
         for(Shop shop : shopList){
             if(shop.getName().equalsIgnoreCase(name)){

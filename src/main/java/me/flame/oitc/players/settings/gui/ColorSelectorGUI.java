@@ -33,48 +33,53 @@ public class ColorSelectorGUI {
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.PURPLE) ? "&a✓" : "&c✘")
                         , ""
                         , "&7&oAls je deze kleur nog niet,"
-                        , "hebt kun je deze kopen in de shop."
-                        , "&7&oGebruik de &aemerald &7&oom de shop te openen.").build());
+                        , "&7&ohebt kun je deze kopen in de shop."
+                        , "&7&oGebruik de &aEmerald &7&oom de shop te openen.").build());
 
         inventory.setItem(12, new ItemBuilder(Material.GREEN_STAINED_GLASS_PANE, 1)
                 .setDisplayName("&2Groen" + ((user.getArmorColor() == Color.GREEN) ? " &f&o(GESELECTEERD)" : ""))
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.GREEN) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oAls je deze kleur nog niet hebt kun je deze kopen in de shop."
-                        , "&7&oGebruik de &aemerald &7&oom de shop te openen.").build());
+                        , "&7&oAls je deze kleur nog niet,"
+                        , "&7&ohebt kun je deze kopen in de shop."
+                        , "&7&oGebruik de &aEmerald &7&oom de shop te openen.").build());
 
         inventory.setItem(13, new ItemBuilder(Material.ORANGE_STAINED_GLASS_PANE, 1)
                 .setDisplayName("&6Oranje" + ((user.getArmorColor() == Color.ORANGE) ? " &f&o(GESELECTEERD)" : ""))
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.ORANGE) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oAls je deze kleur nog niet hebt kun je deze kopen in de shop."
-                        , "&7&oGebruik de &aemerald &7&oom de shop te openen.").build());
+                        , "&7&oAls je deze kleur nog niet,"
+                        , "&7&ohebt kun je deze kopen in de shop."
+                        , "&7&oGebruik de &aEmerald &7&oom de shop te openen.").build());
 
         inventory.setItem(14, new ItemBuilder(Material.PURPLE_STAINED_GLASS_PANE, 1)
                 .setDisplayName("&5Paars" + ((user.getArmorColor() == Color.FUCHSIA) ? " &f&o(GESELECTEERD)" : ""))
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.FUCHSIA) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oAls je deze kleur nog niet hebt kun je deze kopen in de shop."
-                        , "&7&oGebruik de &aemerald &7&oom de shop te openen.").build());
+                        , "&7&oAls je deze kleur nog niet,"
+                        , "&7&ohebt kun je deze kopen in de shop."
+                        , "&7&oGebruik de &aEmerald &7&oom de shop te openen.").build());
 
         inventory.setItem(15, new ItemBuilder(Material.RED_STAINED_GLASS_PANE, 1)
                 .setDisplayName("&4Rood" + ((user.getArmorColor() == Color.MAROON) ? " &f&o(GESELECTEERD)" : ""))
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.MAROON) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oAls je deze kleur nog niet hebt kun je deze kopen in de shop."
-                        , "&7&oGebruik de &aemerald &7&oom de shop te openen.").build());
+                        , "&7&oAls je deze kleur nog niet,"
+                        , "&7&ohebt kun je deze kopen in de shop."
+                        , "&7&oGebruik de &aEmerald &7&oom de shop te openen.").build());
 
         inventory.setItem(16, new ItemBuilder(Material.CYAN_STAINED_GLASS_PANE, 1)
                 .setDisplayName("&3Turquoise" + ((user.getArmorColor() == Color.TEAL) ? " &f&o(GESELECTEERD)" : ""))
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.TEAL) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oAls je deze kleur nog niet hebt kun je deze kopen in de shop."
-                        , "&7&oGebruik de &aemerald &7&oom de shop te openen.").build());
+                        , "&7&oAls je deze kleur nog niet,"
+                        , "&7&ohebt kun je deze kopen in de shop."
+                        , "&7&oGebruik de &aEmerald &7&oom de shop te openen.").build());
 
         inventory.setContents(inventory.getContents());
         p.openInventory(inventory);

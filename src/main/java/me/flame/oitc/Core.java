@@ -16,6 +16,7 @@ import me.flame.oitc.players.managers.ArrowRespawnManager;
 import me.flame.oitc.players.managers.DatabaseManager;
 import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.players.settings.listeners.SettingsListener;
+import me.flame.oitc.players.shop.listeners.ShopListener;
 import me.flame.oitc.players.shop.manager.ShopManager;
 import me.flame.oitc.players.topKills.TopList;
 import me.flame.oitc.players.topKills.listeners.InventoryListenerTopKills;
@@ -120,6 +121,7 @@ public final class Core extends JavaPlugin implements Listener {
         pm.registerEvents(new AdminPanelInventoryListener(), this);
         pm.registerEvents(new SettingsListener(), this);
         pm.registerEvents(new InventoryListenerTopKills(), this);
+        pm.registerEvents(new ShopListener(), this);
     }
 
     private void registerCommands() {

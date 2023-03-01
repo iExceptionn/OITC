@@ -79,13 +79,6 @@ public class InventoryListener implements Listener {
                 colorShopGUI.colorInventory(user);
             }
         }
-
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&7Color-Shop: &a"))) {
-            e.setCancelled(true);
-            if(e.getCurrentItem().getType() == Material.ARROW){
-                shopGUI.openShopGUI(user);
-            }
-        }
     }
 
     @EventHandler

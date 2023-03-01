@@ -44,7 +44,7 @@ public class ShopGUI {
         inventory.setItem(15, new ItemBuilder(Material.DIAMOND_SWORD, 1).setDisplayName("&aSword").setLore(swordLore(user))
                 .setItemFlag(ItemFlag.HIDE_ATTRIBUTES).build());
 
-        inventory.setItem(21, new ItemBuilder(Material.EMERALD, 1).setDisplayName("&aColor Shop &c(SOON)")
+        inventory.setItem(21, new ItemBuilder(Material.EMERALD, 1).setDisplayName("&aColor Shop")
                 .setLore(""
                         , "&7&oHere you can buy new colors for your armor."
                         , "&7&oThis feature is coming soon.").setEnchanted().setItemFlag(ItemFlag.HIDE_ENCHANTS).build());

@@ -22,6 +22,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class UserManager implements IUser {
 
@@ -130,6 +131,9 @@ public class UserManager implements IUser {
 
             String killeffect = KillRewardManager.getInstance().killRewardToString(user.getKillReward());
             playerData.executeUpdate("UPDATE `user_data` set `killreward` = '" + killeffect + "' WHERE uuid = '" + uuid + "';");
+
+            playerData.executeUpdate("UPDATE `user_data` set `bought-colors` = '" + user.getUnlockedColors().stream().map(Object::toString).collect(Collectors.joining(";")) + "' WHERE uuid = '" + uuid + "';");
+            playerData.executeUpdate("UPDATE `user_data` set `bought-rewards` = '" + user.getUnlockedRewards().stream().map(Object::toString).collect(Collectors.joining(";")) + "' WHERE uuid = '" + uuid + "';");
 
             playerData.close();
         } catch (Exception e) {
