@@ -33,8 +33,8 @@ public class Kits implements IKits {
             level = user.getArrowLevel();
         }
 
-        p.getInventory().setItem(1, new ItemBuilder(Material.BOW, 1).setDisplayName("&fBow").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
-        p.getInventory().setItem(2, new ItemBuilder(Material.ARROW, 1).setDisplayName("&fArrow").build());
+        p.getInventory().setItem(1, new ItemBuilder(Material.BOW, 1).setDisplayName("&fBoog").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
+        p.getInventory().setItem(2, new ItemBuilder(Material.ARROW, 1).setDisplayName("&fPijl").build());
 
         ArrowRespawnManager.getInstance().startTimer(user.getUuid(), cooldown - (cooldownReduce * level));
     }
@@ -54,45 +54,45 @@ public class Kits implements IKits {
         switch(armorLevel){
             case 0:
             default:
-                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelmet").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
+                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelm").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
                 p.getInventory().setChestplate(new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).setColor(color).setDisplayName("&fChestplate").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
-                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fLeggings").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
-                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fBoots").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
+                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fBroek").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
+                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fSchoenen").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
 
                 break;
             case 1:
-                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelmet").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelm").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
                 p.getInventory().setChestplate(new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).setColor(color).setDisplayName("&fChestplate").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
-                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fLeggings").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
-                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fBoots").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fBroek").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).build());
+                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fSchoenen").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
 
                 break;
             case 2:
-                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelmet").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelm").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
                 p.getInventory().setChestplate(new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).setColor(color).setDisplayName("&fChestplate").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
-                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fLeggings").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
-                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fBoots").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fBroek").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fSchoenen").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
 
                 break;
             case 3:
-                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelmet").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelm").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
                 p.getInventory().setChestplate(new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).setColor(color).setDisplayName("&fChestplate").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
-                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fLeggings").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
-                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fBoots").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fBroek").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(1, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fSchoenen").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
 
                 break;
             case 4:
-                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelmet").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelm").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
                 p.getInventory().setChestplate(new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).setColor(color).setDisplayName("&fChestplate").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
-                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fLeggings").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
-                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fBoots").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fBroek").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fSchoenen").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
 
                 break;
             case 5:
-                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelmet").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(3, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET, 1).setColor(color).setDisplayName("&fHelm").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(3, Enchantment.PROTECTION_ENVIRONMENTAL).build());
                 p.getInventory().setChestplate(new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).setColor(color).setDisplayName("&fChestplate").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
-                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fLeggings").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
-                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fBoots").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(3, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS, 1).setColor(color).setDisplayName("&fBroek").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(2, Enchantment.PROTECTION_ENVIRONMENTAL).build());
+                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS, 1).setColor(color).setDisplayName("&fSchoenen").setUnbreakable().setItemFlag(ItemFlag.HIDE_UNBREAKABLE).addEnchantment(3, Enchantment.PROTECTION_ENVIRONMENTAL).build());
 
                 break;
         }
