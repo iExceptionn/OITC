@@ -40,9 +40,9 @@ public class ShopListener implements Listener {
                 }
                 if (shopManager.enoughCoins(user, 225)) {
                     shopManager.unlockColor(user, "pink", 225);
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt de kleur &dRoze &7gekocht."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt de kleur &dRoze &7gekocht."));
                 } else {
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt niet genoeg &ecoins &7voor deze kleur."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt niet genoeg &ecoins &7voor deze kleur."));
                 }
                 p.closeInventory();
                 return;
