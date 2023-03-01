@@ -35,12 +35,12 @@ public class SpawnCommand implements CommandExecutor {
                 if (sender.hasPermission("kitpvp.spawn.others")) {
                     Player target = Bukkit.getServer().getPlayer(args[0]);
                     if (target == null) {
-                        sender.sendMessage("&a[OITC] &7Player is offline or not found.");
+                        sender.sendMessage(Core.getPrefix() + "&7Player is offline or not found.");
                         break;
                     }
 
-                    sender.sendMessage(ChatUtils.format("&a[OITC] &7You have teleported &a" + target.getName() + " &7to the spawn."));
-                    target.sendMessage(ChatUtils.format("&a[OITC] &7You have been teleported to spawn by &a" + sender.getName() + "&7."));
+                    sender.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt &a" + target.getName() + " &7naar de spawn gestuurd."));
+                    target.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je bent naar spawn gestuurd door &a" + sender.getName() + "&7."));
                     sendToSpawn(target.getUniqueId());
                     break;
                 }
