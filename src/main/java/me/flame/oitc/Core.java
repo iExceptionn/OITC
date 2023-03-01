@@ -141,7 +141,7 @@ public final class Core extends JavaPlugin implements Listener {
 
     public static String getPrefix() {
 
-        return ChatUtils.format("&8[&aOITC&8]");
+        return ChatUtils.format("&d&lOITC&8 ▷ ");
 
     }
 
