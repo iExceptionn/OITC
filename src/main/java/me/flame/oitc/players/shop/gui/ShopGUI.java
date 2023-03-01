@@ -1,7 +1,6 @@
 package me.flame.oitc.players.shop.gui;
 
 import me.flame.oitc.players.User;
-import me.flame.oitc.players.shop.Shop;
 import me.flame.oitc.players.shop.manager.ShopManager;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.FileManager;
@@ -14,18 +13,19 @@ import org.bukkit.inventory.ItemFlag;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ShopGUI {
 
     ShopManager shopManager = new ShopManager();
 
-    public Inventory openShopGUI(User user) {
+    public void openShopGUI(User user) {
 
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
         Inventory inventory = Bukkit.createInventory(null, 36, ChatUtils.format("&7Shop: &a" + user.getName()));
 
-        Integer cooldown = FileManager.get("config.yml").getInt("rewards.arrow-timer");
-        Integer cooldownReduce = FileManager.get("config.yml").getInt("rewards.cooldown-reduce");
+        int cooldown = Objects.requireNonNull(FileManager.get("config.yml")).getInt("rewards.arrow-timer");
+        int cooldownReduce = Objects.requireNonNull(FileManager.get("config.yml")).getInt("rewards.cooldown-reduce");
 
 
         inventory.setItem(11, new ItemBuilder(Material.ARROW, 1).setDisplayName("&aArrow Timer")
@@ -55,13 +55,13 @@ public class ShopGUI {
                         , "&7&oThis feature is coming soon.").setEnchanted().setItemFlag(ItemFlag.HIDE_ENCHANTS).build());
 
         inventory.setContents(inventory.getContents());
-        p.openInventory(inventory);
-
-        return inventory;
+        if(p != null) {
+            p.openInventory(inventory);
+        }
     }
 
     public List<String> armorLore(User user){
-        List<String> list = new ArrayList();
+        List<String> list = new ArrayList<>();
         list.add(ChatUtils.format(""));
         list.add(ChatUtils.format("&f Current level: &a" + (user.getArmorLevel() >= 5 ? "&cMax Level" : user.getArmorLevel())));
         list.add(ChatUtils.format("&f Upgrade cost: &a" + (user.getArmorLevel() >= 5 ? "&c0" : shopManager.getCost(ShopManager.getShop("armor"), (user.getArmorLevel() + 1)) + " &7Coins.")));
@@ -128,7 +128,7 @@ public class ShopGUI {
     }
 
     public List<String> swordLore(User user){
-        List<String> list = new ArrayList();
+        List<String> list = new ArrayList<>();
         list.add(ChatUtils.format(""));
         list.add(ChatUtils.format("&f Current level: &a" + (user.getSwordLevel() >= 5 ? "&cMax Level" : user.getSwordLevel())));
         list.add(ChatUtils.format("&f Upgrade cost: &a" + (user.getSwordLevel() >= 5 ? "&c0" : shopManager.getCost(ShopManager.getShop("sword"), (user.getSwordLevel() + 1)) + " &7Coins.")));
