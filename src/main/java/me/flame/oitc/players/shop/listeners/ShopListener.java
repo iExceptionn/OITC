@@ -27,7 +27,7 @@ public class ShopListener implements Listener {
         Player p = (Player) e.getWhoClicked();
         User user = UserManager.getUser(p.getUniqueId());
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&7Color-Shop: &a"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&7Kleuren winkel: &d"))) {
             e.setCancelled(true);
             if(e.getCurrentItem().getType() == Material.ARROW){
                 shopGUI.openShopGUI(user);

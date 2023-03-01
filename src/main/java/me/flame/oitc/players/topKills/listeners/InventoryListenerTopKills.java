@@ -29,7 +29,7 @@ public class InventoryListenerTopKills implements Listener {
         Player p = (Player) e.getWhoClicked();
         User user = UserManager.getUser(p.getUniqueId());
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&aList Selector"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&dList Selector"))) {
             e.setCancelled(true);
             if(e.getCurrentItem().getType() == Material.DIAMOND_SWORD){
                 topListKillsGUI.topListKills(user);
@@ -44,21 +44,21 @@ public class InventoryListenerTopKills implements Listener {
             }
         }
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&aTop 5 Kills"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&dTop 5 Kills"))) {
             e.setCancelled(true);
             if(e.getCurrentItem().getType() == Material.ARROW){
                 topListSelectorGUI.topListSelectorGUI(user);
             }
         }
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&aTop 5 Killstreaks"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&dTop 5 Killstreaks"))) {
             e.setCancelled(true);
             if(e.getCurrentItem().getType() == Material.ARROW){
                 topListSelectorGUI.topListSelectorGUI(user);
             }
         }
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&aTop 5 Deaths"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&dTop 5 Deaths"))) {
             e.setCancelled(true);
             if(e.getCurrentItem().getType() == Material.ARROW){
                 topListSelectorGUI.topListSelectorGUI(user);

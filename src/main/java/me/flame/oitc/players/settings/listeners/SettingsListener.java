@@ -31,7 +31,7 @@ public class SettingsListener implements Listener {
         User user = UserManager.getUser(p.getUniqueId());
 
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&aInstellingen"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&dInstellingen"))) {
             e.setCancelled(true);
             if (e.getCurrentItem().getType() == Material.LIME_DYE) {
                 colorSelectorGUI.colorSelectorGUI(user);
@@ -42,7 +42,7 @@ public class SettingsListener implements Listener {
             }
         }
 
-        if(p.getOpenInventory().getTitle().contains(ChatUtils.format("&aKill Reward Selector"))){
+        if(p.getOpenInventory().getTitle().contains(ChatUtils.format("&dKill beloningen"))){
             e.setCancelled(true);
             if(e.getCurrentItem().getType() == Material.ARROW){
                 settingsGUI.openSettingsGUI(user);
@@ -61,7 +61,7 @@ public class SettingsListener implements Listener {
             }
         }
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&aColor Selector"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&dKleuren Selector"))) {
             e.setCancelled(true);
             if (e.getCurrentItem().getType() == Material.LIME_STAINED_GLASS_PANE) {
 

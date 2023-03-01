@@ -44,7 +44,7 @@ public class InventoryListener implements Listener {
 
         if (e.getSlotType() == InventoryType.SlotType.ARMOR) { e.setCancelled(true); return; }
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&7Winkel: &a"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&7Winkel: &d"))) {
             e.setCancelled(true);
             if(e.getCurrentItem().getType() == Material.ARROW){
                 Shop shop = ShopManager.getShop("arrow");

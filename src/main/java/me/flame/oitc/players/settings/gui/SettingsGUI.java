@@ -31,7 +31,7 @@ public class SettingsGUI {
                         , " &fHuidige kleur: &a" + userManager.getColorName(user.getArmorColor())
                         , ""
                         , "&7&oHier kan je een andere"
-                        , "&7&kleur kiezen voor je armor."
+                        , "&7&oleur kiezen voor je armor."
                         , ""
                         , "&7&oJe kunt deze krijgen door een rank"
                         , "&7&ote kopen of hem te unlocken.").build());

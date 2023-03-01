@@ -16,7 +16,7 @@ public class ColorShopGUI {
     public Inventory colorInventory(User user) {
 
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&dKleuren winkel: &a" + user.getName()));
+        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&7Kleuren winkel: &d" + user.getName()));
 
         inventory.setItem(10, new ItemBuilder(Material.PINK_STAINED_GLASS_PANE, 1)
                 .setDisplayName("&dRoze")

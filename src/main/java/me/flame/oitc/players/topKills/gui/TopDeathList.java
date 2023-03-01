@@ -19,7 +19,7 @@ public class TopDeathList {
         int inventoryplace = 11;
 
         for (String topDeathList : TopList.topDeathList.keySet()) {
-            inventory.setItem(inventoryplace, new ItemBuilder(Material.SKELETON_SKULL, place).setDisplayName("&a&l" + place + ": &7" + topDeathList)
+            inventory.setItem(inventoryplace, new ItemBuilder(Material.SKELETON_SKULL, place).setDisplayName("&d&l" + place + ": &7" + topDeathList)
                     .setLore("",
                             " &8- &7Deze speler heeft &d" + TopList.topDeathList.get(topDeathList) + " deaths&7.").build());
 
