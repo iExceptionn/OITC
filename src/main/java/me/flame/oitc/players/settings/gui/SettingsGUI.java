@@ -16,7 +16,7 @@ public class SettingsGUI {
     public Inventory openSettingsGUI(User user) {
 
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&aInstellingen"));
+        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&dInstellingen"));
 
         inventory.setItem(11, new ItemBuilder(Material.ANVIL, 1).setDisplayName("&aKill beloningen")
                 .setLore(""

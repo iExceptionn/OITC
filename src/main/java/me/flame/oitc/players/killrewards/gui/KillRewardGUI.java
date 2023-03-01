@@ -14,7 +14,7 @@ public class KillRewardGUI {
 
     public Inventory openKillRewardGUI(User user) {
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&aKill Reward Selector"));
+        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&dKill beloningen"));
 
         inventory.setItem(12, new ItemBuilder(Material.POTION, 1).setPotionType(PotionType.SPEED, false, false)
                 .setItemFlag(ItemFlag.HIDE_POTION_EFFECTS, ItemFlag.HIDE_ATTRIBUTES)

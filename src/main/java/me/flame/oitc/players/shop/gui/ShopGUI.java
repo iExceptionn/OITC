@@ -22,7 +22,7 @@ public class ShopGUI {
     public void openShopGUI(User user) {
 
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        Inventory inventory = Bukkit.createInventory(null, 36, ChatUtils.format("&7Shop: &a" + user.getName()));
+        Inventory inventory = Bukkit.createInventory(null, 36, ChatUtils.format("&dShop: &a" + user.getName()));
 
         int cooldown = Objects.requireNonNull(FileManager.get("config.yml")).getInt("rewards.arrow-timer");
         int cooldownReduce = Objects.requireNonNull(FileManager.get("config.yml")).getInt("rewards.cooldown-reduce");

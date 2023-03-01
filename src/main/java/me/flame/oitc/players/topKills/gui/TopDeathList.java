@@ -13,7 +13,7 @@ public class TopDeathList {
 
     public Inventory topListKillstreak(User user){
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&aTop 5 Deaths"));
+        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&dTop 5 Deaths"));
 
         int place = 1;
         int inventoryplace = 11;
@@ -21,13 +21,13 @@ public class TopDeathList {
         for (String topDeathList : TopList.topDeathList.keySet()) {
             inventory.setItem(inventoryplace, new ItemBuilder(Material.SKELETON_SKULL, place).setDisplayName("&a&l" + place + ": &7" + topDeathList)
                     .setLore("",
-                            " &8- &7This player has &a" + TopList.topDeathList.get(topDeathList) + " deaths&7.").build());
+                            " &8- &7Deze speler heeft &d" + TopList.topDeathList.get(topDeathList) + " deaths&7.").build());
 
             place++;
             inventoryplace++;
         }
 
-        inventory.setItem(18, new ItemBuilder(Material.ARROW, 1).setDisplayName("&aGo Back").build());
+        inventory.setItem(18, new ItemBuilder(Material.ARROW, 1).setDisplayName("&dGa terug").build());
 
         inventory.setContents(inventory.getContents());
         p.openInventory(inventory);

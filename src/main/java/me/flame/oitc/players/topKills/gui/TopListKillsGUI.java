@@ -13,21 +13,21 @@ public class TopListKillsGUI {
 
     public Inventory topListKills(User user){
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
-        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&aTop 5 Kills"));
+        Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&dTop 5 Kills"));
 
         int place = 1;
         int inventoryplace = 11;
 
         for (String topKillsList2 : TopList.sortedKillsMap.keySet()) {
-            inventory.setItem(inventoryplace, new ItemBuilder(Material.DIAMOND_SWORD, place).setDisplayName("&a&l" + place + ": &7" + topKillsList2)
+            inventory.setItem(inventoryplace, new ItemBuilder(Material.DIAMOND_SWORD, place).setDisplayName("&d&l" + place + ": &7" + topKillsList2)
                     .setLore("",
-                            " &8- &7This player has &a" + TopList.sortedKillsMap.get(topKillsList2) + " kills&7.").build());
+                            " &8- &7Deze speler heeft &d" + TopList.sortedKillsMap.get(topKillsList2) + " kills&7.").build());
 
             place++;
             inventoryplace++;
         }
 
-        inventory.setItem(18, new ItemBuilder(Material.ARROW, 1).setDisplayName("&aGo Back").build());
+        inventory.setItem(18, new ItemBuilder(Material.ARROW, 1).setDisplayName("&dGa Terug").build());
 
         inventory.setContents(inventory.getContents());
         p.openInventory(inventory);
