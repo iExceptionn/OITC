@@ -40,7 +40,7 @@ public class InventoryListenerTopKills implements Listener {
             }
 
             if(e.getCurrentItem().getType() == Material.SKELETON_SKULL){
-                topDeathList.topListKillstreak(user);
+                topDeathList.topListDeaths(user);
             }
         }
 

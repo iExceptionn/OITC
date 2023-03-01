@@ -11,17 +11,17 @@ import org.bukkit.inventory.Inventory;
 
 public class TopDeathList {
 
-    public Inventory topListKillstreak(User user){
+    public Inventory topListDeaths(User user){
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
         Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&dTop 5 Deaths"));
 
         int place = 1;
         int inventoryplace = 11;
 
-        for (String topDeathList : TopList.topDeathList.keySet()) {
+        for (String topDeathList : TopList.sortedDeathMap.keySet()) {
             inventory.setItem(inventoryplace, new ItemBuilder(Material.SKELETON_SKULL, place).setDisplayName("&d&l" + place + ": &7" + topDeathList)
                     .setLore("",
-                            " &8- &7Deze speler heeft &d" + TopList.topDeathList.get(topDeathList) + " deaths&7.").build());
+                            " &8- &7Deze speler heeft &d" + TopList.sortedDeathMap.get(topDeathList) + " deaths&7.").build());
 
             place++;
             inventoryplace++;
