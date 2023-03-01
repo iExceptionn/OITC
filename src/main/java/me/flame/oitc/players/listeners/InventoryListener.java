@@ -1,5 +1,6 @@
 package me.flame.oitc.players.listeners;
 
+import me.flame.oitc.Core;
 import me.flame.oitc.players.User;
 import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.players.settings.gui.SettingsGUI;

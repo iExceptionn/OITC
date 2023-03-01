@@ -31,7 +31,7 @@ public class SettingsListener implements Listener {
         User user = UserManager.getUser(p.getUniqueId());
 
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&aSettings"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&aInstellingen"))) {
             e.setCancelled(true);
             if (e.getCurrentItem().getType() == Material.LIME_DYE) {
                 colorSelectorGUI.colorSelectorGUI(user);
