@@ -43,7 +43,7 @@ public class InventoryListener implements Listener {
 
         if (e.getSlotType() == InventoryType.SlotType.ARMOR) { e.setCancelled(true); return; }
 
-        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&7Shop: &a"))) {
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&7Winkel: &a"))) {
             e.setCancelled(true);
             if(e.getCurrentItem().getType() == Material.ARROW){
                 Shop shop = ShopManager.getShop("arrow");
@@ -52,7 +52,7 @@ public class InventoryListener implements Listener {
                     shopGUI.openShopGUI(user);
                     return;
                 }
-                p.sendMessage(ChatUtils.format("&a[OITC] &7You do not have enough coins to upgrade your &aArrow Timer&7."));
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt niet genoeg munten om je &aArrow Timer&7 te upgraden."));
                 p.closeInventory();
             }
             if(e.getCurrentItem().getType() == Material.DIAMOND_CHESTPLATE){
@@ -62,7 +62,7 @@ public class InventoryListener implements Listener {
                     shopGUI.openShopGUI(user);
                     return;
                 }
-                p.sendMessage(ChatUtils.format("&a[OITC] &7You do not have enough coins to upgrade your &aArmor&7."));
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt niet genoeg munten om je &aArmor&7 te upgraden."));
                 p.closeInventory();
             }
             if(e.getCurrentItem().getType() == Material.DIAMOND_SWORD){
@@ -72,7 +72,7 @@ public class InventoryListener implements Listener {
                     shopGUI.openShopGUI(user);
                     return;
                 }
-                p.sendMessage(ChatUtils.format("&a[OITC] &7You do not have enough coins to upgrade your &aSword&7."));
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt niet genoeg munten om je &aZwaard&7 te upgraden."));
                 p.closeInventory();
             }
             if(e.getCurrentItem().getType() == Material.EMERALD){
