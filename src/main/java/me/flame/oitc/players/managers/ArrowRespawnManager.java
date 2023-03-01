@@ -26,7 +26,7 @@ public class ArrowRespawnManager {
         if (!hasTimer(uuid)) {
             arrowList.put(uuid, timer);
             if (!CombatLogger.getInstance().getInCombat(p.getUniqueId())) {
-                p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtils.format("&fYou will get a new arrow in &a" + arrowTimer(uuid) + " &fseconds.")));
+                p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtils.format("&fJe krijgt een nieuwe pijl over &a" + arrowTimer(uuid) + " &fseconden.")));
             }
             runnable.put(uuid, new BukkitRunnable() {
                 @Override
@@ -34,14 +34,14 @@ public class ArrowRespawnManager {
                     if (hasTimer(uuid)) {
                         arrowList.put(uuid, arrowTimer(uuid) - 1);
                         if (!CombatLogger.getInstance().getInCombat(p.getUniqueId())) {
-                            p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtils.format("&fYou will get a new arrow in &a" + arrowTimer(uuid) + " &fseconds.")));
+                            p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtils.format("&fJe krijgt een nieuwe pijl over &a" + arrowTimer(uuid) + " &fseconden.")));
                         }
                     }
                     if (arrowTimer(uuid) == 0) {
                         arrowList.put(uuid, timer);
-                        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtils.format("&aGoodluck with your new arrow.")));
+                        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatUtils.format("&aSucces met je nieuwe pijl.")));
 
-                        p.getInventory().addItem(new ItemBuilder(Material.ARROW, 1).setDisplayName("&fArrow").build());
+                        p.getInventory().addItem(new ItemBuilder(Material.ARROW, 1).setDisplayName("&fPijl").build());
                     }
                 }
             });
