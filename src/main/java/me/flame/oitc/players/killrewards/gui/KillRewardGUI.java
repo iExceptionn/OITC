@@ -18,23 +18,23 @@ public class KillRewardGUI {
 
         inventory.setItem(12, new ItemBuilder(Material.POTION, 1).setPotionType(PotionType.SPEED, false, false)
                 .setItemFlag(ItemFlag.HIDE_POTION_EFFECTS, ItemFlag.HIDE_ATTRIBUTES)
-                .setDisplayName("&aSpeed " + (user.getKillReward().getName().equalsIgnoreCase("speed") ? "&f&o(Selected)" : ""))
+                .setDisplayName("&aSpeed " + (user.getKillReward().getName().equalsIgnoreCase("speed") ? "&f&o(Geselecteerd)" : ""))
                 .setLore(""
-                        , " &fUnlocked: &a✓"
+                        , " &fOntgrendeld: &a✓"
                         , ""
-                        , "&7&oYou will get the &a&oSpeed 1 &7&oeffect"
-                        , "&7&ofor 5 seconds when you make a kill.").build());
+                        , "&7&oJe krijgt het &a&oSpeed 1 &7&oeffect"
+                        , "&7&ogedurende 5 seconden als je een kill maakt.").build());
 
         inventory.setItem(14, new ItemBuilder(Material.POTION, 1).setPotionType(PotionType.REGEN, false, false)
                 .setItemFlag(ItemFlag.HIDE_POTION_EFFECTS, ItemFlag.HIDE_ATTRIBUTES)
-                .setDisplayName("&aRegeneration " + (user.getKillReward().getName().equalsIgnoreCase("regen") ? "&f&o(Selected)" : ""))
+                .setDisplayName("&aRegeneration " + (user.getKillReward().getName().equalsIgnoreCase("regen") ? "&f&o(Geselecteerd)" : ""))
                 .setLore(""
-                        , " &fUnlocked: &a✓"
+                        , " &fOntgrendeld: &a✓"
                         , ""
-                        , "&7&oYou will get the &a&oRegeneration 1 &7&oeffect"
-                        , "&7&ofor 5 seconds when you make a kill.").build());
+                        , "&7&oJe krijgt het &a&oRegeneration 1 &7&oeffect"
+                        , "&7&ogedurende 5 seconden als je een kill maakt.").build());
 
-        inventory.setItem(18, new ItemBuilder(Material.ARROW, 1).setDisplayName("&fGo Back").build());
+        inventory.setItem(18, new ItemBuilder(Material.ARROW, 1).setDisplayName("&fGa terug").build());
 
         inventory.setContents(inventory.getContents());
         p.openInventory(inventory);
