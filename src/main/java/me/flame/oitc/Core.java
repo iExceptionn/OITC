@@ -75,7 +75,7 @@ public final class Core extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-        getLogger().info("TurtleMC OITC has been disabled! (Beta Version)");
+        getLogger().info("Voidcraft OITC has been disabled! (Beta Version)");
 
         // Basic User stuff
         for (Player player : Bukkit.getOnlinePlayers()) {

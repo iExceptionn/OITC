@@ -1,5 +1,6 @@
 package me.flame.oitc.players.settings.listeners;
 
+import me.flame.oitc.Core;
 import me.flame.oitc.players.User;
 import me.flame.oitc.players.killrewards.managers.KillRewardManager;
 import me.flame.oitc.players.managers.UserManager;
@@ -48,13 +49,13 @@ public class SettingsListener implements Listener {
                 settingsGUI.openSettingsGUI(user);
             }
             if(e.getSlot() == 12){
-                p.sendMessage(ChatUtils.format("&a[OITC] &7You changed your killreward to the &aSpeed&7 effect."));
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je killreward veranderd naar het &dSpeed&7 effect."));
                 user.setKillReward(KillRewardManager.getInstance().getKillReward("speed"));
                 settingsGUI.openSettingsGUI(user);
                 return;
             }
             if(e.getSlot() == 14){
-                p.sendMessage(ChatUtils.format("&a[OITC] &7You changed your killreward to the &aRegeneration&7 effect."));
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je killreward veranderd naar het &dRegeneration&7 effect."));
                 user.setKillReward(KillRewardManager.getInstance().getKillReward("regen"));
                 settingsGUI.openSettingsGUI(user);
                 return;
@@ -66,14 +67,14 @@ public class SettingsListener implements Listener {
             if (e.getCurrentItem().getType() == Material.LIME_STAINED_GLASS_PANE) {
 
                 settings.setArmorColor(user, Color.LIME);
-                p.sendMessage(ChatUtils.format("&a[OITC] &7You have changed your armor color to &aLime&7."));
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je armorkleur veranderd in &aLime&7."));
                 p.closeInventory();
                 return;
             }
             if (e.getCurrentItem().getType() == Material.PINK_STAINED_GLASS_PANE) {
                 if (settings.hasColorPermission(user, Color.FUCHSIA)) {
                     settings.setArmorColor(user, Color.FUCHSIA);
-                    p.sendMessage(ChatUtils.format("&a[OITC] &7You have changed your armor color to &dPink&7."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je armorkleur veranderd in &dPink&7."));
                     p.closeInventory();
                 }
                 return;
@@ -81,7 +82,7 @@ public class SettingsListener implements Listener {
             if (e.getCurrentItem().getType() == Material.GREEN_STAINED_GLASS_PANE) {
                 if (settings.hasColorPermission(user, Color.GREEN)) {
                     settings.setArmorColor(user, Color.GREEN);
-                    p.sendMessage(ChatUtils.format("&a[OITC] &7You have changed your armor color to &2Green&7."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je armorkleur veranderd in &2Green&7."));
                     p.closeInventory();
                 }
                 return;
@@ -89,7 +90,7 @@ public class SettingsListener implements Listener {
             if (e.getCurrentItem().getType() == Material.ORANGE_STAINED_GLASS_PANE) {
                 if (settings.hasColorPermission(user, Color.ORANGE)) {
                     settings.setArmorColor(user, Color.ORANGE);
-                    p.sendMessage(ChatUtils.format("&a[OITC] &7You have changed your armor color to &6Orange&7."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je armorkleur veranderd in &6Orange&7."));
                     p.closeInventory();
                 }
                 return;
@@ -97,7 +98,7 @@ public class SettingsListener implements Listener {
             if (e.getCurrentItem().getType() == Material.PURPLE_STAINED_GLASS_PANE) {
                 if (settings.hasColorPermission(user, Color.PURPLE)) {
                     settings.setArmorColor(user, Color.PURPLE);
-                    p.sendMessage(ChatUtils.format("&a[OITC] &7You have changed your armor color to &5Purple&7."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je armorkleur veranderd in &5Purple&7."));
                     p.closeInventory();
                 }
                 return;
@@ -105,7 +106,7 @@ public class SettingsListener implements Listener {
             if (e.getCurrentItem().getType() == Material.RED_STAINED_GLASS_PANE) {
                 if (settings.hasColorPermission(user, Color.MAROON)) {
                     user.setArmorColor(Color.MAROON);
-                    p.sendMessage(ChatUtils.format("&a[OITC] &7You have changed your armor color to &4Red&7."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je armorkleur veranderd in &4Red&7."));
                     p.closeInventory();
                 }
                 return;
@@ -113,7 +114,7 @@ public class SettingsListener implements Listener {
             if (e.getCurrentItem().getType() == Material.CYAN_STAINED_GLASS_PANE) {
                 if (settings.hasColorPermission(user, Color.TEAL)) {
                     user.setArmorColor(Color.TEAL);
-                    p.sendMessage(ChatUtils.format("&a[OITC] &7You have changed your armor color to &3Cyan&7."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je armorkleur veranderd in &3Cyan&7."));
                     p.closeInventory();
                 }
                 return;

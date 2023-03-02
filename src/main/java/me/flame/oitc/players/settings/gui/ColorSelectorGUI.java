@@ -25,7 +25,7 @@ public class ColorSelectorGUI {
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.PURPLE) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oThis is the default color for everyone.").build());
+                        , "&7&oDit is een standaard kleur voor iedereen.").build());
 
         inventory.setItem(11, new ItemBuilder(Material.PINK_STAINED_GLASS_PANE, 1)
                 .setDisplayName("&dRoze" + ((user.getArmorColor() == Color.PURPLE) ? " &f&o(GESELECTEERD)" : ""))

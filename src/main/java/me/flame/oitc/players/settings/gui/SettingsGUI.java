@@ -18,15 +18,15 @@ public class SettingsGUI {
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
         Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&dInstellingen"));
 
-        inventory.setItem(11, new ItemBuilder(Material.ANVIL, 1).setDisplayName("&aKill beloningen")
+        inventory.setItem(11, new ItemBuilder(Material.ANVIL, 1).setDisplayName("&dKill beloningen")
                 .setLore(""
                         , "&7&oBekijk je kill beloningen").build());
 
-        inventory.setItem(13, new ItemBuilder(Material.WRITABLE_BOOK, 1).setDisplayName("&aStatistieken")
+        inventory.setItem(13, new ItemBuilder(Material.WRITABLE_BOOK, 1).setDisplayName("&dStatistieken")
                 .setLore(""
                         , "&7&oBekijk hier je statistieken").build());
 
-        inventory.setItem(15, new ItemBuilder(Material.LIME_DYE, 1).setDisplayName("&aKleurkiezer")
+        inventory.setItem(15, new ItemBuilder(Material.LIME_DYE, 1).setDisplayName("&dKleurkiezer")
                 .setLore(""
                         , " &fHuidige kleur: &a" + userManager.getColorName(user.getArmorColor())
                         , ""

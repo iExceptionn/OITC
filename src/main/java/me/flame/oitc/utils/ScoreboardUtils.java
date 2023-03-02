@@ -45,7 +45,7 @@ public class ScoreboardUtils {
         Objective objective = scoreboard.registerNewObjective("noflicker", "Dummy");
 
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-        objective.setDisplayName(ChatUtils.format("&5&lVoid&d&lCraft &8| &fOITC"));
+        objective.setDisplayName(ChatUtils.format("&d&lVoidCraft &8| &fOITC"));
 
         Score cspacer3 = objective.getScore(ChatUtils.format("&3"));
         cspacer3.setScore(14);

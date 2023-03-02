@@ -68,9 +68,9 @@ public class ShopListener implements Listener {
                 }
                 if (shopManager.enoughCoins(user, 225)) {
                     shopManager.unlockColor(user, "orange", 225);
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt de kleur &6Oranje &7gekocht."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt de kleur &6Oranje &7gekocht."));
                 } else {
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt niet genoeg &ecoins &7voor deze kleur."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt niet genoeg &ecoins &7voor deze kleur."));
                 }
                 p.closeInventory();
                 return;
@@ -82,9 +82,9 @@ public class ShopListener implements Listener {
                 }
                 if (shopManager.enoughCoins(user, 225)) {
                     shopManager.unlockColor(user, "purple", 225);
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt de kleur &5Paars &7gekocht."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt de kleur &5Paars &7gekocht."));
                 } else {
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt niet genoeg &ecoins &7voor deze kleur."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt niet genoeg &ecoins &7voor deze kleur."));
                 }
                 p.closeInventory();
                 return;
@@ -96,9 +96,9 @@ public class ShopListener implements Listener {
                 }
                 if (shopManager.enoughCoins(user, 225)) {
                     shopManager.unlockColor(user, "red", 225);
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt de kleur &4Rood &7gekocht."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt de kleur &4Rood &7gekocht."));
                 } else {
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt niet genoeg &ecoins &7voor deze kleur."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt niet genoeg &ecoins &7voor deze kleur."));
                 }
                 p.closeInventory();
                 return;
@@ -110,9 +110,9 @@ public class ShopListener implements Listener {
                 }
                 if (shopManager.enoughCoins(user, 225)) {
                     shopManager.unlockColor(user, "cyan", 225);
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt de kleur &3Turquoise &7gekocht."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt de kleur &3Turquoise &7gekocht."));
                 } else {
-                    p.sendMessage(ChatUtils.format(Core.getPrefix() + " &7Je hebt niet genoeg &ecoins &7voor deze kleur."));
+                    p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt niet genoeg &ecoins &7voor deze kleur."));
                 }
                 p.closeInventory();
             }
