@@ -23,7 +23,7 @@ public class ColorShopGUI {
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.FUCHSIA) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oDeze kleur is te koop voor &e50 Coins&7&o."
+                        , "&7&oDeze kleur is te koop voor &e225 Coins&7&o."
                         , "&7&oNa het kopen van deze kleur kun je hem"
                         , "&7&oselecteren via &dinstellingen&7&o.").build());
 
@@ -32,7 +32,7 @@ public class ColorShopGUI {
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.GREEN) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oDeze kleur is te koop voor &e50 Coins&7&o."
+                        , "&7&oDeze kleur is te koop voor &e225 Coins&7&o."
                         , "&7&oNa het kopen van deze kleur kun je hem"
                         , "&7&oselecteren via &dinstellingen&7&o.").build());
 
@@ -41,7 +41,7 @@ public class ColorShopGUI {
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.ORANGE) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oDeze kleur is te koop voor &e50 Coins&7&o."
+                        , "&7&oDeze kleur is te koop voor &e225 Coins&7&o."
                         , "&7&oNa het kopen van deze kleur kun je hem"
                         , "&7&oselecteren via &dinstellingen&7&o.").build());
 
@@ -53,7 +53,7 @@ public class ColorShopGUI {
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.PURPLE) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oDeze kleur is te koop voor &e50 Coins&7&o."
+                        , "&7&oDeze kleur is te koop voor &e225 Coins&7&o."
                         , "&7&oNa het kopen van deze kleur kun je hem"
                         , "&7&oselecteren via &dinstellingen&7&o.").build());
 
@@ -62,7 +62,7 @@ public class ColorShopGUI {
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.MAROON) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oDeze kleur is te koop voor &e50 Coins&7&o."
+                        , "&7&oDeze kleur is te koop voor &e225 Coins&7&o."
                         , "&7&oNa het kopen van deze kleur kun je hem"
                         , "&7&oselecteren via &dinstellingen&7&o.").build());
 
@@ -71,7 +71,7 @@ public class ColorShopGUI {
                 .setLore(""
                         , " &fGekocht: " + (settings.hasColorPermission(user, Color.TEAL) ? "&a✓" : "&c✘")
                         , ""
-                        , "&7&oDeze kleur is te koop voor &e50 Coins&7&o."
+                        , "&7&oDeze kleur is te koop voor &e225 Coins&7&o."
                         , "&7&oNa het kopen van deze kleur kun je hem"
                         , "&7&oselecteren via &dinstellingen&7&o.").build());
 
