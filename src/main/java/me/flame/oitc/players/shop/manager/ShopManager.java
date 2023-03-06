@@ -63,7 +63,7 @@ public class ShopManager implements IShopManager {
             case "armor":
                 user.setArmorLevel(level);
                 user.setCoins(user.getCoins() - getCost(shop, level));
-                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7e hebt je &dArmor &7geupgrade naar &a" + level + "&7."));
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je hebt je &dArmor &7geupgrade naar &a" + level + "&7."));
                 break;
             case "sword":
                 user.setSwordLevel(level);

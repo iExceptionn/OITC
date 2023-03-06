@@ -19,8 +19,8 @@ import java.util.UUID;
 
 public class PvPEventListener implements Listener {
 
-    SpawnCommand spawnCommand = new SpawnCommand();
-    UserManager userManager = new UserManager();
+    private SpawnCommand spawnCommand = new SpawnCommand();
+    private UserManager userManager = new UserManager();
     public static HashMap<UUID, UUID> inFight = new HashMap<>();
 
     /**
@@ -84,46 +84,24 @@ public class PvPEventListener implements Listener {
         e.setDroppedExp(0);
         e.getDrops().clear();
 
-        if(CombatLogger.getInstance().getInCombat(p.getUniqueId())){
+        if (CombatLogger.getInstance().getInCombat(p.getUniqueId())) {
             CombatLogger.getInstance().stopCombat(p.getUniqueId());
         }
 
-        if(p.getKiller() == null){
-            if(inFight.containsKey(p.getUniqueId())){
-                Player target = Bukkit.getServer().getPlayer(inFight.get(p.getUniqueId()));
-                User TUser = UserManager.getUser(target.getUniqueId());
-                inFight.remove(p.getUniqueId());
-                inFight.remove(target.getUniqueId());
-
-                if(user.getKillstreak() >= 5){
-                    for(Player online : Bukkit.getServer().getOnlinePlayers()){
-                        online.sendMessage(ChatUtils.format(Core.getPrefix() + "&d" + target.getName() + " &7vermoorde &d" + p.getName() + " &7met een killstreak van &f" + user.getKillstreak() + "&7!"));
-                    }
-                }
-
-                userManager.removeRewards(user);
-                userManager.addRewards(TUser);
-
-                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je bent vermoord door &d" + target.getName()));
-                target.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je vermoorde &d" + p.getName()));
-
-                return;
-            }
-            return;
-        } else if(p.getKiller() != null){
+        if (p.getKiller() != null) {
             Player target = p.getKiller();
             User TUser = UserManager.getUser(target.getUniqueId());
 
-            if(inFight.containsKey(p.getUniqueId())){
+            if (inFight.containsKey(p.getUniqueId())) {
                 inFight.remove(p.getUniqueId());
             }
 
-            if(inFight.containsKey(target.getUniqueId())){
+            if (inFight.containsKey(target.getUniqueId())) {
                 inFight.remove(target.getUniqueId());
             }
 
-            if(user.getKillstreak() >= 5){
-                for(Player online : Bukkit.getServer().getOnlinePlayers()){
+            if (user.getKillstreak() >= 5) {
+                for (Player online : Bukkit.getServer().getOnlinePlayers()) {
                     online.sendMessage(ChatUtils.format(Core.getPrefix() + "&d" + target.getName() + " &7vermoorde &d" + p.getName() + " &7met een killstreak van &f" + user.getKillstreak() + "&7!"));
                 }
             }
@@ -135,11 +113,27 @@ public class PvPEventListener implements Listener {
             p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je bent vermoord door &d" + target.getName()));
             target.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je vermoorde &d" + p.getName()));
 
+        } else if (p.getKiller() == null) {
+            if (inFight.containsKey(p.getUniqueId())) {
+                Player target = Bukkit.getServer().getPlayer(inFight.get(p.getUniqueId()));
+                User TUser = UserManager.getUser(target.getUniqueId());
+                inFight.remove(p.getUniqueId());
+                inFight.remove(target.getUniqueId());
 
-            return;
+                if (user.getKillstreak() >= 5) {
+                    for (Player online : Bukkit.getServer().getOnlinePlayers()) {
+                        online.sendMessage(ChatUtils.format(Core.getPrefix() + "&d" + target.getName() + " &7vermoorde &d" + p.getName() + " &7met een killstreak van &f" + user.getKillstreak() + "&7!"));
+                    }
+                }
+
+                userManager.removeRewards(user);
+                userManager.addRewards(TUser);
+
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je bent vermoord door &d" + target.getName()));
+                target.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je vermoorde &d" + p.getName()));
+            }
+
         }
-
-        return;
     }
 
     @EventHandler

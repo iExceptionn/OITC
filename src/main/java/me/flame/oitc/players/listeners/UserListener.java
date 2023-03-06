@@ -117,7 +117,7 @@ public class UserListener implements Listener {
             p.setVelocity(p.getLocation().getDirection().multiply(3).setY(1));
         }
 
-        if (!(location.distanceSquared(p.getWorld().getSpawnLocation()) <= 100)) {
+        if (!(location.distanceSquared(p.getWorld().getSpawnLocation()) <= 120)) {
             if (p.getInventory().getHelmet() == null && p.getGameMode() == GameMode.ADVENTURE) {
 
                 kits.giveKit(UserManager.getUser(p.getUniqueId()));
