@@ -33,8 +33,8 @@ public class AdminPanelManager implements IAdminPanelManager {
         for(Player player : Bukkit.getServer().getOnlinePlayers()){
             if(active == true){
                 player.sendMessage("");
-                player.sendMessage(ChatUtils.format("&a[OITC] &7There is a XP booster of &a" + booster + "&7 active now!"));
-                player.sendMessage(ChatUtils.format("&a[OITC] &7Thanks to &a" + playerName + "&7."));
+                player.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Er is een XP boost van &d" + booster + "&7 aangezet!"));
+                player.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Aangezet door &d" + playerName + "&7."));
                 player.sendMessage("");
 
                 player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
@@ -62,8 +62,8 @@ public class AdminPanelManager implements IAdminPanelManager {
         for(Player player : Bukkit.getServer().getOnlinePlayers()){
             if(active == true){
                 player.sendMessage("");
-                player.sendMessage(ChatUtils.format("&a[OITC] &7There is a Coins booster of &a" + booster + "&7 active now!"));
-                player.sendMessage(ChatUtils.format("&a[OITC] &7Thanks to &a" + playerName + "&7."));
+                player.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Er is een coins booster van &d" + booster + "&7 aangezet!"));
+                player.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Aangezet door &d" + playerName + "&7."));
                 player.sendMessage("");
 
                 player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
@@ -90,8 +90,8 @@ public class AdminPanelManager implements IAdminPanelManager {
         for(Player player : Bukkit.getServer().getOnlinePlayers()){
             if(active == true){
                 player.sendMessage("");
-                player.sendMessage(ChatUtils.format("&a[OITC] &7You will have temporally max upgrade items."));
-                player.sendMessage(ChatUtils.format("&a[OITC] &7Thanks to &a" + playerName + "&7."));
+                player.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Iedereen heeft nu tijdelijk &dmaximale geupgrade &ditems."));
+                player.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Aangezet door &d" + playerName + "&7."));
                 player.sendMessage("");
 
                 player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
