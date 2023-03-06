@@ -172,7 +172,7 @@ public class UserManager implements IUser {
 
         if(user.getKillstreak() >= 5){
             for(Player online : Bukkit.getOnlinePlayers()){
-                online.sendMessage(ChatUtils.format("&a[OITC] &f" + p.getName() + " &7has a killstreak of &f" + user.getKillstreak() + "&7!"));
+                online.sendMessage(ChatUtils.format(Core.getPrefix() + "&d" + p.getName() + " &7heeft een &dkillstreak &7van &&d" + user.getKillstreak() + "&7!"));
             }
         }
 
