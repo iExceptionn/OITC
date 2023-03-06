@@ -9,7 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
-public class TopKillstreakList {
+public class  TopKillstreakList {
 
     public Inventory topListKillstreak(User user){
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
