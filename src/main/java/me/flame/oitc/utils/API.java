@@ -29,15 +29,15 @@ public class API extends PlaceholderExpansion {
         }
 
         if(identifier.equalsIgnoreCase("xpbooster")){
-            return adminPanelManager.isXPActive() ? "&aActive: &ex" + adminPanelManager.getXPBooster() : "&cDisabled";
+            return adminPanelManager.isXPActive() ? "&aActief: &ex" + adminPanelManager.getXPBooster() : "&cNiet actief";
         }
 
         if(identifier.equalsIgnoreCase("coinsbooster")){
-            return adminPanelManager.isCoinsActive() ? "&aActive: &ex" + adminPanelManager.getCoinsBooster() : "&cDisabled";
+            return adminPanelManager.isCoinsActive() ? "&aActief: &ex" + adminPanelManager.getCoinsBooster() : "&cNiet actief";
         }
 
         if(identifier.equalsIgnoreCase("maxupgrades")){
-            return adminPanelManager.isMaxUpgradesActive() ? "&aActive" : "&cDisabled";
+            return adminPanelManager.isMaxUpgradesActive() ? "&aActief" : "&cNiet actief";
         }
 
         return null;
