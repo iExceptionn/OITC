@@ -6,6 +6,7 @@ import me.flame.oitc.players.User;
 import me.flame.oitc.players.combat.CombatLogger;
 import me.flame.oitc.players.commands.SpawnCommand;
 import me.flame.oitc.players.kit.Kits;
+import me.flame.oitc.players.levels.managers.LevelsManager;
 import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.utils.ScoreboardUtils;
 import org.bukkit.*;
@@ -23,11 +24,14 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.UUID;
 
+import static sun.jvm.hotspot.code.CompressedStream.L;
+
 public class UserListener implements Listener {
 
     UserManager userManager = new UserManager();
     ScoreboardUtils scoreboardUtils = new ScoreboardUtils();
     SpawnCommand spawnCommand = new SpawnCommand();
+    LevelsManager levelsManager = new LevelsManager();
     private final Kits kits = new Kits();
 
     @EventHandler
@@ -37,6 +41,7 @@ public class UserListener implements Listener {
 
         // Load user to plugin
         userManager.loadUser(uuid);
+        User user = UserManager.getUser(uuid);
 
         // User basics
         scoreboardUtils.setScoreboard(uuid);
@@ -45,13 +50,8 @@ public class UserListener implements Listener {
         p.setHealth(20);
         p.setGameMode(GameMode.ADVENTURE);
 
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            if (VanishCommand.vanished.contains(player.getUniqueId())) {
-                if (!(p.hasPermission("oitc.vanish.see"))) {
-                    p.hidePlayer(Core.getInstance(), player);
-                }
-            }
-        }
+        p.setExp(0L);
+        p.setLevel(user.getLevel());
     }
 
     @EventHandler

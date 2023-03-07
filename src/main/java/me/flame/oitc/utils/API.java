@@ -2,11 +2,13 @@ package me.flame.oitc.utils;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.flame.oitc.admin.adminpanel.managers.AdminPanelManager;
+import me.flame.oitc.players.managers.UserManager;
 import org.bukkit.entity.Player;
 
 public class API extends PlaceholderExpansion {
 
     AdminPanelManager adminPanelManager = new AdminPanelManager();
+
 
     @Override
     public String getIdentifier() {
@@ -38,6 +40,10 @@ public class API extends PlaceholderExpansion {
 
         if(identifier.equalsIgnoreCase("maxupgrades")){
             return adminPanelManager.isMaxUpgradesActive() ? "&aActief" : "&cNiet actief";
+        }
+
+        if(identifier.equalsIgnoreCase("getplayerlevel")){
+            return String.valueOf(UserManager.getUser(p.getUniqueId()).getLevel());
         }
 
         return null;

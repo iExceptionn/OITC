@@ -3,6 +3,7 @@ package me.flame.oitc.utils;
 import me.flame.oitc.Core;
 import me.flame.oitc.admin.adminpanel.managers.AdminPanelManager;
 import me.flame.oitc.players.User;
+import me.flame.oitc.players.levels.managers.LevelsManager;
 import me.flame.oitc.players.managers.UserManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -16,6 +17,7 @@ import java.util.UUID;
 public class ScoreboardUtils {
 
     private static AdminPanelManager adminPanelManager = new AdminPanelManager();
+    private static LevelsManager levelsManager = new LevelsManager();
 
     public static void setScoreboard(UUID uuid) {
         Player p = Bukkit.getPlayer(uuid);
@@ -48,20 +50,30 @@ public class ScoreboardUtils {
         objective.setDisplayName(ChatUtils.format("&d&lVoidCraft &8| &fOITC"));
 
         Score cspacer3 = objective.getScore(ChatUtils.format("&3"));
-        cspacer3.setScore(14);
+        cspacer3.setScore(15);
 
-        Score playerName = objective.getScore(ChatUtils.format("&d" + user.getName()));
-        playerName.setScore(13);
+        Score playerName = objective.getScore(ChatUtils.format("&dInformatie"));
+        playerName.setScore(14);
 
         Team ping = scoreboard.registerNewTeam("ping");
         ping.addEntry(ChatUtils.format("&f- &ePing: &f"));
         ping.setSuffix((playerPing + ChatUtils.format("&7ms")));
-        objective.getScore(ChatUtils.format("&f- &ePing: &f")).setScore(12);
+        objective.getScore(ChatUtils.format("&f- &ePing: &f")).setScore(13);
 
         Team coins = scoreboard.registerNewTeam("coins");
         coins.addEntry(ChatUtils.format("&f- &eCoins: &f"));
         coins.setSuffix(df.format(user.getCoins()));
-        objective.getScore(ChatUtils.format("&f- &eCoins: &f")).setScore(11);
+        objective.getScore(ChatUtils.format("&f- &eCoins: &f")).setScore(12);
+
+        Team level = scoreboard.registerNewTeam("level");
+        level.addEntry(ChatUtils.format("&f- &eLevel: &f"));
+        level.setSuffix(String.valueOf(user.getLevel()));
+        objective.getScore(ChatUtils.format("&f- &eLevel: &f")).setScore(11);
+
+        Team xp = scoreboard.registerNewTeam("xp");
+        xp.addEntry(ChatUtils.format("&f- &eXP: &f"));
+        xp.setSuffix(ChatUtils.format(user.getXp() + " &7/ &d" + levelsManager.getNextUpgradeXp(user)));
+        objective.getScore(ChatUtils.format("&f- &eXP: &f")).setScore(10);
 
         Score cspacer2 = objective.getScore(ChatUtils.format("&2"));
         cspacer2.setScore(9);
@@ -124,6 +136,8 @@ public class ScoreboardUtils {
 
                 ping.setSuffix((playerPing + ChatUtils.format("&7ms")));
                 coins.setSuffix(df.format(user.getCoins()));
+                level.setSuffix(String.valueOf(user.getLevel()));
+                xp.setSuffix(ChatUtils.format(user.getXp() + " &7/ &d" + levelsManager.getNextUpgradeXp(user)));
 
                 kills.setSuffix(String.valueOf(user.getKills()));
                 deaths.setSuffix(String.valueOf(user.getDeaths()));

@@ -1,11 +1,13 @@
 package me.flame.oitc.players.managers;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import me.flame.oitc.Core;
 import me.flame.oitc.admin.adminpanel.managers.AdminPanelManager;
 import me.flame.oitc.players.User;
 import me.flame.oitc.players.interfaces.IUser;
 import me.flame.oitc.players.killrewards.KillReward;
 import me.flame.oitc.players.killrewards.managers.KillRewardManager;
+import me.flame.oitc.players.levels.managers.LevelsManager;
 import me.flame.oitc.players.settings.Settings;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.FileManager;
@@ -30,6 +32,8 @@ public class UserManager implements IUser {
     private ArrowRespawnManager arrowRespawnManager = new ArrowRespawnManager();
     private AdminPanelManager adminPanelManager = new AdminPanelManager();
 
+    final LevelsManager levelsManager = new LevelsManager();
+
     @Override
     public void registerUser(UUID uuid) {
         Player p = Bukkit.getPlayer(uuid);
@@ -38,7 +42,7 @@ public class UserManager implements IUser {
             ResultSet result = insert.executeQuery();
 
             if (!result.next()) {
-                insert.executeUpdate("INSERT INTO `user_data` (`uuid`, `name`,`coins`, `kills`, `deaths`, `bestStreak`, `arrowLevel`, `armorLevel`, `swordLevel`) VALUE ('" + uuid + "', '" + p.getName() + "', '0', '0', '0', '0', '0', '0', '0');");
+                insert.executeUpdate("INSERT INTO `user_data` (`uuid`, `name`,`xp`, `level`, `coins`, `kills`, `deaths`, `bestStreak`, `arrowLevel`, `armorLevel`, `swordLevel`) VALUE ('" + uuid + "', '" + p.getName() + "', '0','1','0', '0', '0', '0', '0', '0', '0');");
             }
 
         } catch (SQLException e) {
@@ -66,6 +70,8 @@ public class UserManager implements IUser {
                 double coins = resultPlayerData.getDouble("coins");
                 Integer kills = resultPlayerData.getInt("kills");
                 Integer deaths = resultPlayerData.getInt("deaths");
+                double xp = resultPlayerData.getDouble("xp");
+                Integer level = resultPlayerData.getInt("level");
                 Integer bestKillStreak = resultPlayerData.getInt("bestStreak");
                 Integer arrowLevel = resultPlayerData.getInt("arrowLevel");
                 Integer armorLevel = resultPlayerData.getInt("armorLevel");
@@ -90,7 +96,7 @@ public class UserManager implements IUser {
                     unlockedRewards.add(string);
                 }
 
-                user = new User(playerName, uuid, coins, kills, deaths, 0, bestKillStreak, arrowLevel, armorLevel, swordLevel, color2, killReward, unlockedColors, unlockedRewards);
+                user = new User(playerName, uuid, coins, kills, deaths, 0, bestKillStreak, arrowLevel, armorLevel, swordLevel, color2, killReward, unlockedColors, unlockedRewards, xp, level);
                 users.add(user);
 
 
@@ -117,6 +123,9 @@ public class UserManager implements IUser {
             // Data related
             playerData.executeUpdate("UPDATE `user_data` set `name` = '" + user.getName() + "' WHERE uuid = '" + uuid + "';");
             playerData.executeUpdate("UPDATE `user_data` set `coins` = '" + user.getCoins() + "' WHERE uuid = '" + uuid + "';");
+            playerData.executeUpdate("UPDATE `user_data` set `level` = '" + user.getLevel() + "' WHERE uuid = '" + uuid + "';");
+            playerData.executeUpdate("UPDATE `user_data` set `xp` = '" + user.getXp() + "' WHERE uuid = '" + uuid + "';");
+
 
             // PvP Related
             playerData.executeUpdate("UPDATE `user_data` set `kills` = '" + user.getKills() + "' WHERE uuid = '" + uuid + "';");
@@ -161,6 +170,7 @@ public class UserManager implements IUser {
     @Override
     public void addRewards(User user) {
         Double rewardCoinsAmount = FileManager.get("config.yml").getInt("rewards.coins-kill") * adminPanelManager.getCoinsBooster();
+        Double rewardXpAmount = FileManager.get("config.yml").getDouble("rewards.xp-kill") * adminPanelManager.getXPBooster();
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
 
         user.setKills(user.getKills() + 1);
@@ -176,6 +186,17 @@ public class UserManager implements IUser {
             }
         }
 
+        // User Levels
+        if(levelsManager.getNextUpgradeXp(user) != null){
+            user.setXp(user.getXp() + rewardXpAmount);
+            if(user.getXp() >= levelsManager.getNextUpgradeXp(user)){
+                user.setLevel(user.getLevel() + 1);
+                p.sendMessage(ChatUtils.format(Core.getPrefix() + "&7Je bent zojuist geupgrade naar level &d" + user.getLevel() + "&7!"));
+                p.setExp(0L);
+                p.setLevel(user.getLevel());
+            }
+        }
+
         KillRewardManager.getInstance().giveKillReward(user, user.getKillReward());
 
         p.getInventory().addItem(new ItemBuilder(Material.ARROW, 1).setDisplayName("&fPijl").build());
@@ -185,9 +206,14 @@ public class UserManager implements IUser {
     @Override
     public void removeRewards(User user) {
         Integer loseCoinsAmount = FileManager.get("config.yml").getInt("rewards.coins-death");
+        double loseXpAmount = FileManager.get("config.yml").getDouble("rewards.xp-death");
 
         user.setDeaths(user.getDeaths() + 1);
         user.setCoins(user.getCoins() - loseCoinsAmount);
+        if(levelsManager.getNextUpgradeXp(user) != null){
+            user.setXp(user.getXp() - loseXpAmount);
+        }
+
         user.setKillstreak(0);
 
     }

@@ -1,8 +1,10 @@
 package me.flame.oitc.players.commands;
 
 import me.flame.oitc.Core;
+import me.flame.oitc.players.User;
 import me.flame.oitc.players.combat.CombatLogger;
 import me.flame.oitc.players.managers.ArrowRespawnManager;
+import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.utils.ChatUtils;
 import me.flame.oitc.utils.FileManager;
 import me.flame.oitc.utils.ItemBuilder;
@@ -51,6 +53,7 @@ public class SpawnCommand implements CommandExecutor {
 
     public void sendToSpawn(UUID uuid) {
         Player p = Bukkit.getServer().getPlayer(uuid);
+        User user = UserManager.getUser(uuid);
 
         ArrowRespawnManager.getInstance().removeTimer(uuid);
 
@@ -59,6 +62,9 @@ public class SpawnCommand implements CommandExecutor {
         p.getInventory().setChestplate(null);
         p.getInventory().setLeggings(null);
         p.getInventory().setBoots(null);
+
+        p.setExp(0L);
+        p.setLevel(user.getLevel());
 
         for (PotionEffect potionEffect : p.getActivePotionEffects()) {
             p.removePotionEffect(potionEffect.getType());

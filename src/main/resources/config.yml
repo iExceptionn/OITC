@@ -20,3 +20,5 @@ rewards:
   coins-death: 0 # This is the amount of coins a player will lose when he dies.
   arrow-timer: 300 # Respawn timer for a new arrow.
   cooldown-reduce: 15 # Cooldown reduce * level.
+  xp-kill: 0.5
+  xp-death: 0

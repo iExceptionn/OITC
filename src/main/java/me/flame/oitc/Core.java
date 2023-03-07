@@ -9,6 +9,7 @@ import me.flame.oitc.admin.commands.SetSpawnCommand;
 import me.flame.oitc.players.commands.ScoreboardCommand;
 import me.flame.oitc.players.commands.SpawnCommand;
 import me.flame.oitc.players.killrewards.managers.KillRewardManager;
+import me.flame.oitc.players.levels.managers.LevelsManager;
 import me.flame.oitc.players.listeners.InventoryListener;
 import me.flame.oitc.players.listeners.PvPEventListener;
 import me.flame.oitc.players.listeners.UserListener;
@@ -40,6 +41,8 @@ public final class Core extends JavaPlugin implements Listener {
     private static final ShopManager shopManager = new ShopManager();
     private static final AdminPanelManager adminPanelManager = new AdminPanelManager();
 
+    private static final LevelsManager levelsManager = new LevelsManager();
+
     public static Core getInstance() {
         return instance;
     }
@@ -55,6 +58,7 @@ public final class Core extends JavaPlugin implements Listener {
         connectMysql();
         databaseManager.createDatabase();
         shopManager.registerShops();
+        levelsManager.loadLevels();
 
         // Commands / Events / other stuff
         registerEvents();

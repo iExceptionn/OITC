@@ -24,9 +24,12 @@ public class User {
     private List<String> unlockedColors;
     private List<String> unlockedRewards;
 
+    private Double xp;
+    private int level;
 
 
-    public User(String name, UUID uuid, Double coins, Integer kills, Integer deaths, Integer killstreak, Integer bestKillstreak, Integer arrowLevel, Integer armorLevel, Integer swordLevel, Color armorColor, KillReward killReward, List<String> unlockedColors, List<String> unlockedRewards){
+
+    public User(String name, UUID uuid, Double coins, Integer kills, Integer deaths, Integer killstreak, Integer bestKillstreak, Integer arrowLevel, Integer armorLevel, Integer swordLevel, Color armorColor, KillReward killReward, List<String> unlockedColors, List<String> unlockedRewards, double xp, int level){
         this.name = name;
         this.uuid = uuid;
         this.coins = coins;
@@ -41,6 +44,8 @@ public class User {
         this.killReward = killReward;
         this.unlockedColors = unlockedColors;
         this.unlockedRewards = unlockedRewards;
+        this.xp = xp;
+        this.level = level;
 
     }
 
@@ -146,5 +151,21 @@ public class User {
 
     public void setUnlockedRewards(List<String> unlockedRewards) {
         this.unlockedRewards = unlockedRewards;
+    }
+
+    public Double getXp() {
+        return xp;
+    }
+
+    public void setXp(Double xp) {
+        this.xp = xp;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }
