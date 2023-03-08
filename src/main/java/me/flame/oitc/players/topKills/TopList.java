@@ -22,10 +22,12 @@ public class TopList implements ITopList {
     public static HashMap<String, Integer> topKillsList = new HashMap<>();
     public static HashMap<String, Integer> topStreakList = new HashMap<>();
     public static HashMap<String, Integer> topDeathList = new HashMap<>();
+    public static HashMap<String, Integer> topLevelsList = new HashMap<>();
     private final UserManager userManager = new UserManager();
     public static SortedMap<String, Integer> sortedKillsMap;
     public static SortedMap<String, Integer> sortedStreakMap;
     public static SortedMap<String, Integer> sortedDeathMap;
+    public static SortedMap<String, Integer> sortedLevelsMap;
 
     @Override
     public void loadTopList() {
@@ -33,6 +35,7 @@ public class TopList implements ITopList {
         topKillsList.clear();
         topStreakList.clear();
         topDeathList.clear();
+        topLevelsList.clear();
 
         try (Connection connection = Core.hikari.getConnection()) {
 
@@ -44,6 +47,9 @@ public class TopList implements ITopList {
 
             PreparedStatement topDeath = connection.prepareStatement("SELECT * FROM `user_data` ORDER BY `deaths` DESC LIMIT 5");
             ResultSet resulttopDeath = topDeath.executeQuery();
+
+            PreparedStatement topLevels = connection.prepareStatement("SELECT * FROM `user_data` ORDER BY `level` DESC LIMIT 5");
+            ResultSet resultTopLevels = topLevels.executeQuery();
 
             while (resultTopKills.next()) {
 
@@ -69,13 +75,23 @@ public class TopList implements ITopList {
                 topDeathList.put(name, deaths);
             }
 
+            while (resultTopLevels.next()) {
+
+                String name = resultTopLevels.getString("name");
+                Integer level = resultTopLevels.getInt("level");
+
+                topLevelsList.put(name, level);
+            }
+
             sortedKillsMap = ImmutableSortedMap.copyOf(topKillsList, Ordering.natural().reverse().onResultOf(Functions.forMap(topKillsList)).compound(Ordering.natural()));
             sortedStreakMap = ImmutableSortedMap.copyOf(topStreakList, Ordering.natural().reverse().onResultOf(Functions.forMap(topStreakList)).compound(Ordering.natural()));
             sortedDeathMap = ImmutableSortedMap.copyOf(topDeathList, Ordering.natural().reverse().onResultOf(Functions.forMap(topDeathList)).compound(Ordering.natural()));
+            sortedLevelsMap = ImmutableSortedMap.copyOf(topLevelsList, Ordering.natural().reverse().onResultOf(Functions.forMap(topLevelsList)).compound(Ordering.natural()));
 
             Core.getInstance().getLogger().info("Top " + sortedKillsMap.size() + " kills loaded");
             Core.getInstance().getLogger().info("Top " + sortedDeathMap.size() + " deaths loaded");
             Core.getInstance().getLogger().info("Top " + sortedStreakMap.size() + " killstreaks loaded");
+            Core.getInstance().getLogger().info("Top " + sortedLevelsMap.size() + " levels loaded");
 
         } catch (Exception e) {
             e.printStackTrace();

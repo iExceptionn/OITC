@@ -15,11 +15,13 @@ public class TopListSelectorGUI {
         Player p = Bukkit.getServer().getPlayer(user.getUuid());
         Inventory inventory = Bukkit.createInventory(null, 27, ChatUtils.format("&dList Selector"));
 
-        inventory.setItem(11, new ItemBuilder(Material.DIAMOND_SWORD, 1).setDisplayName("&dTop 5 Kills").build());
+        inventory.setItem(10, new ItemBuilder(Material.DIAMOND_SWORD, 1).setDisplayName("&dTop 5 Kills").build());
 
-        inventory.setItem(13, new ItemBuilder(Material.BOOK, 1).setDisplayName("&dTop 5 Killstreak").build());
+        inventory.setItem(12, new ItemBuilder(Material.BOOK, 1).setDisplayName("&dTop 5 Killstreak").build());
 
-        inventory.setItem(15, new ItemBuilder(Material.SKELETON_SKULL, 1).setDisplayName("&dTop 5 Deaths").build());
+        inventory.setItem(14, new ItemBuilder(Material.SKELETON_SKULL, 1).setDisplayName("&dTop 5 Deaths").build());
+
+        inventory.setItem(16, new ItemBuilder(Material.EXPERIENCE_BOTTLE, 1).setDisplayName("&dTop 5 Levels").build());
 
 
         inventory.setContents(inventory.getContents());

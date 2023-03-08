@@ -3,10 +3,7 @@ package me.flame.oitc.players.topKills.listeners;
 import me.flame.oitc.players.User;
 import me.flame.oitc.players.killrewards.managers.KillRewardManager;
 import me.flame.oitc.players.managers.UserManager;
-import me.flame.oitc.players.topKills.gui.TopDeathList;
-import me.flame.oitc.players.topKills.gui.TopKillstreakList;
-import me.flame.oitc.players.topKills.gui.TopListKillsGUI;
-import me.flame.oitc.players.topKills.gui.TopListSelectorGUI;
+import me.flame.oitc.players.topKills.gui.*;
 import me.flame.oitc.utils.ChatUtils;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -21,6 +18,7 @@ public class InventoryListenerTopKills implements Listener {
     private final TopListSelectorGUI topListSelectorGUI = new TopListSelectorGUI();
     private final TopKillstreakList topKillstreakList = new TopKillstreakList();
     private final TopDeathList topDeathList = new TopDeathList();
+    private final TopLevelsList topLevelsList = new TopLevelsList();
 
     @EventHandler
     public void clickEvent(InventoryClickEvent e) {
@@ -42,9 +40,20 @@ public class InventoryListenerTopKills implements Listener {
             if(e.getCurrentItem().getType() == Material.SKELETON_SKULL){
                 topDeathList.topListDeaths(user);
             }
+
+            if(e.getCurrentItem().getType() == Material.EXPERIENCE_BOTTLE){
+                topLevelsList.topListLevels(user);
+            }
         }
 
         if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&dTop 5 Kills"))) {
+            e.setCancelled(true);
+            if(e.getCurrentItem().getType() == Material.ARROW){
+                topListSelectorGUI.topListSelectorGUI(user);
+            }
+        }
+
+        if (p.getOpenInventory().getTitle().contains(ChatUtils.format("&dTop 5 Levels"))) {
             e.setCancelled(true);
             if(e.getCurrentItem().getType() == Material.ARROW){
                 topListSelectorGUI.topListSelectorGUI(user);
