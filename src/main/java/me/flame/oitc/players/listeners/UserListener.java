@@ -10,6 +10,7 @@ import me.flame.oitc.players.levels.managers.LevelsManager;
 import me.flame.oitc.players.managers.UserManager;
 import me.flame.oitc.utils.ScoreboardUtils;
 import org.bukkit.*;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,6 +18,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -64,7 +66,7 @@ public class UserListener implements Listener {
         userManager.saveUser(user);
         userManager.removeUser(user);
 
-        if(CombatLogger.getInstance().getInCombat(p.getUniqueId())){
+        if (CombatLogger.getInstance().getInCombat(p.getUniqueId())) {
             CombatLogger.getInstance().stopCombat(p.getUniqueId());
         }
     }
@@ -126,4 +128,21 @@ public class UserListener implements Listener {
         }
     }
 
+    @EventHandler
+    public void EntityHangingEvent(HangingBreakByEntityEvent e) {
+
+        if (e.getRemover().getType() == EntityType.PLAYER) {
+            Player p = (Player) e.getRemover();
+            if (p.hasPermission("oitc.build") && p.getGameMode() == GameMode.CREATIVE) return;
+            e.setCancelled(true);
+
+        } else if (e.getRemover().getType() == EntityType.ARROW){
+            Arrow arrow = (Arrow) e.getRemover();
+            Player p = (Player) arrow.getShooter();
+            if (p.hasPermission("oitc.build") && p.getGameMode() == GameMode.CREATIVE) return;
+            e.setCancelled(true);
+        }
+
+
+    }
 }
