@@ -47,12 +47,12 @@ public class ScoreboardUtils {
         Objective objective = scoreboard.registerNewObjective("noflicker", "Dummy");
 
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-        objective.setDisplayName(ChatUtils.format("&d&lVoidCraft &8| &fOITC"));
+        objective.setDisplayName(ChatUtils.format("&6&lCamel&e&lCraft &8| &fOITC"));
 
         Score cspacer3 = objective.getScore(ChatUtils.format("&3"));
         cspacer3.setScore(15);
 
-        Score playerName = objective.getScore(ChatUtils.format("&dInformatie"));
+        Score playerName = objective.getScore(ChatUtils.format("&6Informatie"));
         playerName.setScore(14);
 
         Team ping = scoreboard.registerNewTeam("ping");
@@ -72,13 +72,13 @@ public class ScoreboardUtils {
 
         Team xp = scoreboard.registerNewTeam("xp");
         xp.addEntry(ChatUtils.format("&f- &eXP: &f"));
-        xp.setSuffix(ChatUtils.format(user.getXp() + " &7/ &d" + levelsManager.getNextUpgradeXp(user)));
+        xp.setSuffix(ChatUtils.format(user.getXp() + " &7/ &e" + levelsManager.getNextUpgradeXp(user)));
         objective.getScore(ChatUtils.format("&f- &eXP: &f")).setScore(10);
 
         Score cspacer2 = objective.getScore(ChatUtils.format("&2"));
         cspacer2.setScore(9);
 
-        Score playerStats = objective.getScore(ChatUtils.format("&dStats"));
+        Score playerStats = objective.getScore(ChatUtils.format("&6Stats"));
         playerStats.setScore(8);
 
         Team kills = scoreboard.registerNewTeam("kills");
@@ -109,7 +109,7 @@ public class ScoreboardUtils {
         Score cspacer1 = objective.getScore(ChatUtils.format("&1"));
         cspacer1.setScore(2);
 
-        Score footer = objective.getScore(ChatUtils.format("&7play.voidcraft.nl"));
+        Score footer = objective.getScore(ChatUtils.format("&7play.camelcraft.nl"));
         footer.setScore(1);
 
         new BukkitRunnable() {
@@ -137,7 +137,7 @@ public class ScoreboardUtils {
                 ping.setSuffix((playerPing + ChatUtils.format("&7ms")));
                 coins.setSuffix(df.format(user.getCoins()));
                 level.setSuffix(String.valueOf(user.getLevel()));
-                xp.setSuffix(ChatUtils.format(user.getXp() + " &7/ &d" + levelsManager.getNextUpgradeXp(user)));
+                xp.setSuffix(ChatUtils.format(user.getXp() + " &7/ &e" + levelsManager.getNextUpgradeXp(user)));
 
                 kills.setSuffix(String.valueOf(user.getKills()));
                 deaths.setSuffix(String.valueOf(user.getDeaths()));
